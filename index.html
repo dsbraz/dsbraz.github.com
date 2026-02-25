@@ -365,6 +365,74 @@
             line-height: 1.6;
         }
 
+        /* Blog / Medium Posts */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .post-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 28px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .post-date {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+        }
+
+        .post-title {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .post-excerpt {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .post-tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 3px 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .posts-loading {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
         /* Connect / Social */
         .connect-grid {
             display: grid;
@@ -619,6 +687,14 @@
         </div>
     </section>
 
+    <!-- Blog -->
+    <section class="section">
+        <div class="section-header">Writing</div>
+        <div id="blog-posts" class="posts-grid reveal">
+            <p class="posts-loading">// Loading posts...</p>
+        </div>
+    </section>
+
     <!-- Connect -->
     <section id="connect" class="section">
         <div class="section-header">Connect</div>
@@ -641,6 +717,13 @@
                 <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 <div>
                     <div class="social-name">X (Twitter)</div>
+                    <div class="social-handle">@dsbraz</div>
+                </div>
+            </a>
+            <a href="https://medium.com/@dsbraz" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                <div>
+                    <div class="social-name">Medium</div>
                     <div class="social-handle">@dsbraz</div>
                 </div>
             </a>
@@ -920,6 +1003,39 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 reveals.forEach(el => observer.observe(el));
+
+// Fetch Medium posts
+(async function loadPosts() {
+    const container = document.getElementById('blog-posts');
+    try {
+        const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@dsbraz');
+        const data = await res.json();
+        if (data.status !== 'ok' || !data.items.length) {
+            container.innerHTML = '<p class="posts-loading">// No posts found</p>';
+            return;
+        }
+        container.innerHTML = data.items.slice(0, 6).map(post => {
+            const date = new Date(post.pubDate).toLocaleDateString('en-US', {
+                year: 'numeric', month: 'short', day: 'numeric'
+            });
+            // Extract plain text excerpt from description HTML
+            const tmp = document.createElement('div');
+            tmp.innerHTML = post.description;
+            const excerpt = tmp.textContent.substring(0, 150).trim() + '...';
+            const tags = post.categories.slice(0, 3).map(t =>
+                `<span class="post-tag">${t}</span>`
+            ).join('');
+            return `<a href="${post.link}" target="_blank" rel="noopener noreferrer" class="post-card">
+                <div class="post-date">${date}</div>
+                <div class="post-title">${post.title}</div>
+                <div class="post-excerpt">${excerpt}</div>
+                ${tags ? `<div class="post-tags">${tags}</div>` : ''}
+            </a>`;
+        }).join('');
+    } catch (e) {
+        container.innerHTML = '<p class="posts-loading">// Could not load posts</p>';
+    }
+})();
 </script>
 
 </body>
