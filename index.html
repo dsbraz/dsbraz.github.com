@@ -1,62 +1,932 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Daniel Braz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Braz — Software Engineer</title>
+    <meta name="description" content="Daniel Braz — Software Engineer & Entrepreneur based in São Paulo, Brazil.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: "Lucida Grande";
-            background-image: url("images/sampa.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-        h1 {
-            font-size: 46px;
-            margin-bottom: 10px;
-            margin-top: 25px;
-        }
-        ul {
+        *, *::before, *::after {
+            margin: 0;
             padding: 0;
-            list-style-type: none;
+            box-sizing: border-box;
         }
-        ul li {
-            display: inline;
-            padding-right: 12px;
+
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --accent: #00d4ff;
+            --accent-dim: rgba(0, 212, 255, 0.15);
+            --accent-glow: rgba(0, 212, 255, 0.4);
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-dim: #64748b;
+            --border: rgba(148, 163, 184, 0.1);
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
-        a:link {
-            color: #FFFFFF;
+
+        html {
+            scroll-behavior: smooth;
         }
-        a:visited {
-            color: #FFFFFF;
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
-        .content {
-            background-color: #06181F;
-            color: #FFFFFF;
-            width: 50%;
-            margin: 5% auto;
-            padding: 1%;
-            padding-top: 1%;
-            opacity: 0.9;
+
+        /* Animated grid background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        canvas#particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 0;
+        }
+
+        .hero-label {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero-name {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.15s forwards;
+        }
+
+        .hero-name .accent {
+            color: var(--accent);
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.3s forwards;
+        }
+
+        .hero-description {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 560px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.45s forwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.6s forwards;
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 14px 28px;
+            border: 1px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--accent-dim);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .btn-filled {
+            background: var(--accent-dim);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border), transparent);
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.9;
+        }
+
+        .about-text p + p {
+            margin-top: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.08);
+        }
+
+        .stat-number {
+            font-family: var(--font-mono);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Timeline / Experience */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--accent), var(--border));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 36px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 8px;
+            width: 9px;
+            height: 9px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .timeline-item.current::before {
+            width: 11px;
+            height: 11px;
+            left: -37px;
+            box-shadow: 0 0 16px var(--accent-glow), 0 0 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .timeline-role {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .timeline-period {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .timeline-current-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 3px 8px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 28px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .skill-icon {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-icon::before {
+            content: '>';
+            opacity: 0.5;
+        }
+
+        .skill-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .skill-desc {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* Connect / Social */
+        .connect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text-primary);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .social-link:hover .social-icon {
+            color: var(--accent);
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            transition: color 0.3s ease;
+        }
+
+        .social-name {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .social-handle {
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        .footer-text .accent {
+            color: var(--accent);
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .connect-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Daniel Braz</h1>
-        <h2>Software Engineer</h2>
-        <p>
-            I'm a software engineer and entrepreneur. <br><br>
-            I have been working with software in the last 22 years of my life. <br><br>
-            I really like what I do. I'm even proud of some of the "toys" I built. <br><br>
-            In the (approximately) last 60.000 hours that I have passed building something, I did it to all sort of companies, from small startups to big enterprises, as consultant or "product builder", working with great team mates and some friends.
+
+<canvas id="particles"></canvas>
+
+<div class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-label">// Hello, World</div>
+        <h1 class="hero-name">Daniel <span class="accent">Braz</span></h1>
+        <p class="hero-title">CTO @ BRQ Digital Solutions</p>
+        <p class="hero-description">
+            Software engineer and entrepreneur with 25+ years of experience.
+            Currently leading technology at BRQ Digital Solutions — from startups to enterprises,
+            I build teams and systems that make a difference.
         </p>
-        <p>
-            Currently living in S&atilde;o Paulo <br>
+        <div class="hero-cta">
+            <a href="#connect" class="btn btn-filled">Get in Touch</a>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+        <div class="section-header">About</div>
+        <div class="about-content reveal">
+            <div class="about-text">
+                <p>
+                    I'm a software engineer, tech executive, and entrepreneur based in São Paulo, Brazil.
+                    Currently serving as CTO at BRQ Digital Solutions, I lead technology strategy
+                    and engineering teams delivering large-scale digital transformation.
+                </p>
+                <p>
+                    Over the past 25+ years, I've dedicated roughly 60,000 hours to
+                    building software — and I'm proud of quite a few of the "toys" I've shipped.
+                    From early-stage startups like Nuvemshop to global enterprises like Accenture,
+                    I've worked across the entire spectrum as both a consultant and a product builder.
+                </p>
+                <p>
+                    I'm driven by curiosity, the thrill of solving hard problems,
+                    and the belief that great software can shape the world.
+                </p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Years in Tech</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60K+</div>
+                    <div class="stat-label">Hours Coding</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Open Source Repos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2009</div>
+                    <div class="stat-label">On GitHub Since</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+        <div class="section-header">Experience</div>
+        <div class="timeline reveal">
+            <div class="timeline-item current">
+                <div class="timeline-role">Chief Technology Officer <span class="timeline-current-badge">Current</span></div>
+                <div class="timeline-company">BRQ Digital Solutions</div>
+                <div class="timeline-period">Present</div>
+                <div class="timeline-desc">Leading technology strategy, engineering teams, and digital transformation initiatives at one of Brazil's largest IT services companies.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-role">Platform Director & General Manager (GM)</div>
+                <div class="timeline-company">Senior Sistemas</div>
+                <div class="timeline-period">Previous</div>
+                <div class="timeline-desc">Drove engineering excellence and technical leadership at one of Brazil's leading enterprise software companies.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-role">Platform & Technology Director</div>
+                <div class="timeline-company">Nuvemshop</div>
+                <div class="timeline-period">Previous</div>
+                <div class="timeline-desc">Helped scale the engineering organization at Latin America's leading e-commerce platform for SMBs, building products used by hundreds of thousands of merchants.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-role">Technology Director</div>
+                <div class="timeline-company">Thoughtworks</div>
+                <div class="timeline-period">Previous</div>
+                <div class="timeline-desc">Built software and delivered consulting at one of the world's most respected tech consultancies, known for pioneering agile and modern engineering practices.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-role">Technology & Product Director</div>
+                <div class="timeline-company">Accenture</div>
+                <div class="timeline-period">Previous</div>
+                <div class="timeline-desc">Delivered technology consulting and software solutions for large enterprise clients across multiple industries.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do -->
+    <section class="section">
+        <div class="section-header">What I Do</div>
+        <div class="skills-grid reveal">
+            <div class="skill-card">
+                <div class="skill-icon">software_engineering</div>
+                <div class="skill-name">Software Engineering</div>
+                <div class="skill-desc">Designing and building robust, scalable systems from the ground up.</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">architecture</div>
+                <div class="skill-name">System Architecture</div>
+                <div class="skill-desc">Crafting the blueprints that turn complex requirements into clean, maintainable solutions.</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">entrepreneurship</div>
+                <div class="skill-name">Entrepreneurship</div>
+                <div class="skill-desc">Turning ideas into products. Building things that people actually use and love.</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">consulting</div>
+                <div class="skill-name">Tech Consulting</div>
+                <div class="skill-desc">Helping teams and companies make better technical decisions and ship faster.</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">leadership</div>
+                <div class="skill-name">Technical Leadership</div>
+                <div class="skill-desc">Guiding engineering teams with clarity, empathy, and a bias for action.</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">open_source</div>
+                <div class="skill-name">Open Source</div>
+                <div class="skill-desc">Contributing to and maintaining projects that give back to the community.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect -->
+    <section id="connect" class="section">
+        <div class="section-header">Connect</div>
+        <div class="connect-grid reveal">
+            <a href="https://github.com/dsbraz" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <div>
+                    <div class="social-name">GitHub</div>
+                    <div class="social-handle">@dsbraz</div>
+                </div>
+            </a>
+            <a href="https://linkedin.com/in/dsbraz" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <div>
+                    <div class="social-name">LinkedIn</div>
+                    <div class="social-handle">@dsbraz</div>
+                </div>
+            </a>
+            <a href="https://x.com/dsbraz" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <div>
+                    <div class="social-name">X (Twitter)</div>
+                    <div class="social-handle">@dsbraz</div>
+                </div>
+            </a>
+            <a href="mailto:dsbraz@dsbraz.com" class="social-link">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
+                <div>
+                    <div class="social-name">Email</div>
+                    <div class="social-handle">dsbraz@dsbraz.com</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">
+            <span class="accent">&lt;</span> Built with curiosity and coffee <span class="accent">/&gt;</span>
         </p>
-        <ul>
-            <li><a href="http://www.linkedin.com/in/dsbraz">LinkedIn</a></li>
-            <li><a href="http://twitter.com/dsbraz">Twitter</a></li>
-            <li><a href="http://github.com/dsbraz">Github</a></li>
-        </ul>
-    </div>
+    </footer>
+
+</div>
+
+<script>
+// Space background with stars, galaxies, and particle connections
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+let width, height, particles, galaxies, constellation, time = 0;
+
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+}
+
+function createParticles() {
+    // Stars
+    const count = Math.floor((width * height) / 12000);
+    particles = [];
+    for (let i = 0; i < count; i++) {
+        particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            radius: Math.random() * 1.5 + 0.5,
+            twinkleSpeed: Math.random() * 0.02 + 0.005,
+            twinkleOffset: Math.random() * Math.PI * 2
+        });
+    }
+
+    // Constellations
+    const cScale = Math.min(width, height) * 0.12;
+
+    const constellationDefs = [
+        {
+            // Orion — right side, upper
+            cx: width * 0.85, cy: height * 0.28,
+            scale: cScale * 1.3,
+            points: [
+                { x: -0.3, y: -0.5 }, { x: 0.3, y: -0.45 },
+                { x: -0.08, y: -0.1 }, { x: 0.0, y: -0.05 }, { x: 0.1, y: 0.0 },
+                { x: -0.35, y: 0.5 }, { x: 0.25, y: 0.45 },
+            ],
+            edges: [[0,2],[1,4],[2,3],[3,4],[2,5],[4,6],[0,1]]
+        },
+        {
+            // Libra — right side, lower
+            cx: width * 0.78, cy: height * 0.72,
+            scale: cScale,
+            points: [
+                { x: 0.0, y: -0.5 },   // top
+                { x: -0.3, y: 0.0 },    // left mid
+                { x: 0.3, y: 0.0 },     // right mid
+                { x: -0.4, y: 0.4 },    // left bottom
+                { x: 0.4, y: 0.4 },     // right bottom
+            ],
+            edges: [[0,1],[0,2],[1,3],[2,4],[1,2]]
+        },
+        {
+            // Gemini — left side
+            cx: width * 0.12, cy: height * 0.75,
+            scale: cScale * 1.1,
+            points: [
+                { x: -0.15, y: -0.5 },  // Castor head
+                { x: 0.2, y: -0.45 },   // Pollux head
+                { x: -0.18, y: -0.15 }, // Castor torso
+                { x: 0.18, y: -0.1 },   // Pollux torso
+                { x: -0.25, y: 0.2 },   // Castor hip
+                { x: 0.22, y: 0.25 },   // Pollux hip
+                { x: -0.3, y: 0.5 },    // Castor foot
+                { x: 0.28, y: 0.5 },    // Pollux foot
+            ],
+            edges: [[0,2],[2,4],[4,6],[1,3],[3,5],[5,7],[2,3],[4,5]]
+        }
+    ];
+
+    constellation = constellationDefs.map(def => ({
+        stars: def.points.map(p => ({
+            x: def.cx + p.x * def.scale,
+            y: def.cy + p.y * def.scale,
+            radius: Math.random() * 1.2 + 1.0
+        })),
+        edges: def.edges
+    }));
+
+    // Galaxies — subtle spiral formations
+    const galaxyCount = Math.max(3, Math.floor((width * height) / 400000));
+    galaxies = [];
+    for (let i = 0; i < galaxyCount; i++) {
+        const arms = Math.random() > 0.5 ? 2 : 3;
+        galaxies.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: Math.random() * 130 + 80,
+            rotation: Math.random() * Math.PI * 2,
+            rotationSpeed: (Math.random() - 0.5) * 0.0003,
+            arms: arms,
+            opacity: Math.random() * 0.04 + 0.02,
+            tilt: Math.random() * 0.6 + 0.3,
+            starCount: Math.floor(Math.random() * 60) + 40,
+            hue: Math.random() > 0.6 ? 200 : (Math.random() > 0.5 ? 260 : 180)
+        });
+    }
+}
+
+function drawGalaxy(g) {
+    g.rotation += g.rotationSpeed;
+
+    ctx.save();
+    ctx.translate(g.x, g.y);
+    ctx.scale(1, g.tilt);
+    ctx.rotate(g.rotation);
+
+    // Core glow
+    const coreGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, g.size * 0.25);
+    coreGrad.addColorStop(0, `hsla(${g.hue}, 60%, 80%, ${g.opacity * 1.5})`);
+    coreGrad.addColorStop(0.5, `hsla(${g.hue}, 50%, 60%, ${g.opacity * 0.5})`);
+    coreGrad.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(0, 0, g.size * 0.25, 0, Math.PI * 2);
+    ctx.fillStyle = coreGrad;
+    ctx.fill();
+
+    // Spiral arms with tiny stars
+    for (let s = 0; s < g.starCount; s++) {
+        const arm = s % g.arms;
+        const armOffset = (arm / g.arms) * Math.PI * 2;
+        const t = (s / g.starCount) * 3.5;
+        const spiral = armOffset + t * 1.2;
+        const dist = t * g.size * 0.28;
+
+        const spread = (Math.random() - 0.5) * g.size * 0.12 * (t * 0.3 + 0.2);
+        const sx = Math.cos(spiral) * dist + spread * Math.cos(spiral + Math.PI / 2);
+        const sy = Math.sin(spiral) * dist + spread * Math.sin(spiral + Math.PI / 2);
+
+        const fade = 1 - (t / 3.5);
+        const flicker = 0.5 + 0.5 * Math.sin(time * 0.01 + s);
+        const alpha = g.opacity * fade * flicker;
+        const r = Math.random() * 0.8 + 0.3;
+
+        ctx.beginPath();
+        ctx.arc(sx, sy, r, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${g.hue + (Math.random() - 0.5) * 30}, 50%, 75%, ${alpha})`;
+        ctx.fill();
+    }
+
+    // Diffuse outer glow
+    const outerGrad = ctx.createRadialGradient(0, 0, g.size * 0.15, 0, 0, g.size);
+    outerGrad.addColorStop(0, `hsla(${g.hue}, 40%, 60%, ${g.opacity * 0.3})`);
+    outerGrad.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(0, 0, g.size, 0, Math.PI * 2);
+    ctx.fillStyle = outerGrad;
+    ctx.fill();
+
+    ctx.restore();
+}
+
+function drawParticles() {
+    ctx.clearRect(0, 0, width, height);
+    time++;
+
+    // Draw galaxies first (behind stars)
+    for (const g of galaxies) {
+        drawGalaxy(g);
+    }
+
+    // Draw constellations
+    if (constellation) {
+        for (let ci = 0; ci < constellation.length; ci++) {
+            const c = constellation[ci];
+            const cAlpha = (ci === 2 ? 0.10 : 0.20) + 0.06 * Math.sin(time * 0.008 + ci * 2);
+
+            // Edges
+            for (const [a, b] of c.edges) {
+                const sa = c.stars[a];
+                const sb = c.stars[b];
+                ctx.beginPath();
+                ctx.moveTo(sa.x, sa.y);
+                ctx.lineTo(sb.x, sb.y);
+                ctx.strokeStyle = `rgba(0, 212, 255, ${cAlpha * 0.5})`;
+                ctx.lineWidth = 0.6;
+                ctx.stroke();
+            }
+
+            // Stars
+            for (const s of c.stars) {
+                const flicker = 0.7 + 0.3 * Math.sin(time * 0.015 + s.x);
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius * flicker, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 212, 255, ${cAlpha * 1.5})`;
+                ctx.fill();
+
+                // Subtle glow
+                const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.radius * 4);
+                glow.addColorStop(0, `rgba(0, 212, 255, ${cAlpha * 0.4})`);
+                glow.addColorStop(1, 'transparent');
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius * 4, 0, Math.PI * 2);
+                ctx.fillStyle = glow;
+                ctx.fill();
+            }
+        }
+    }
+
+    // Draw stars and connections
+    for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        // Twinkle effect
+        const twinkle = 0.3 + 0.7 * Math.abs(Math.sin(time * p.twinkleSpeed + p.twinkleOffset));
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 212, 255, ${0.4 * twinkle})`;
+        ctx.fill();
+
+        // Connections
+        for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 120) {
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.strokeStyle = `rgba(0, 212, 255, ${0.06 * (1 - dist / 120)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+    }
+
+    requestAnimationFrame(drawParticles);
+}
+
+resize();
+createParticles();
+drawParticles();
+
+window.addEventListener('resize', () => {
+    resize();
+    createParticles();
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
