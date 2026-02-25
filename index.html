@@ -365,6 +365,21 @@
             line-height: 1.6;
         }
 
+        /* GitHub Chart */
+        .github-chart {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+        }
+
+        .github-chart img {
+            width: 100%;
+            min-width: 600px;
+            display: block;
+        }
+
         /* Blog / Medium Posts */
         .posts-grid {
             display: grid;
@@ -684,6 +699,14 @@
                 <div class="skill-name">Open Source</div>
                 <div class="skill-desc">Contributing to and maintaining projects that give back to the community.</div>
             </div>
+        </div>
+    </section>
+
+    <!-- GitHub Activity -->
+    <section class="section">
+        <div class="section-header">Open Source Activity</div>
+        <div class="github-chart reveal">
+            <img src="https://ghchart.rshah.org/00d4ff/dsbraz" alt="GitHub Contribution Graph" />
         </div>
     </section>
 
