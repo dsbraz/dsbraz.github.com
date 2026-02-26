@@ -448,6 +448,53 @@
             color: var(--text-dim);
         }
 
+        /* Pinned Repos */
+        .repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .repo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .repo-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .repo-name {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .repo-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .repo-lang {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-dim);
+        }
+
         /* Connect / Social */
         .connect-grid {
             display: grid;
@@ -645,7 +692,7 @@
                 <div class="timeline-desc">Drove engineering excellence and technical leadership at one of Brazil's leading enterprise software companies.</div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-role">Platform & Technology Director</div>
+                <div class="timeline-role">Platform Director</div>
                 <div class="timeline-company">Nuvemshop</div>
                 <div class="timeline-period">Previous</div>
                 <div class="timeline-desc">Helped scale the engineering organization at Latin America's leading e-commerce platform for SMBs, building products used by hundreds of thousands of merchants.</div>
@@ -707,6 +754,24 @@
         <div class="section-header">Open Source Activity</div>
         <div class="github-chart reveal">
             <img src="https://ghchart.rshah.org/00d4ff/dsbraz" alt="GitHub Contribution Graph" />
+        </div>
+        <div class="repos-grid reveal">
+            <a href="https://github.com/dsbraz/consultancy_pricing" target="_blank" rel="noopener noreferrer" class="repo-card">
+                <div class="repo-name">consultancy_pricing</div>
+                <div class="repo-lang">// Python · Vanilla JS</div>
+            </a>
+            <a href="https://github.com/dsbraz/portfolioOS" target="_blank" rel="noopener noreferrer" class="repo-card">
+                <div class="repo-name">portfolioOS</div>
+                <div class="repo-lang">// Python · Angular</div>
+            </a>
+            <a href="https://github.com/dsbraz/bud" target="_blank" rel="noopener noreferrer" class="repo-card">
+                <div class="repo-name">bud</div>
+                <div class="repo-lang">// C# · Blazor</div>
+            </a>
+            <a href="https://github.com/dsbraz/SublimeREPL" target="_blank" rel="noopener noreferrer" class="repo-card">
+                <div class="repo-name">SublimeREPL</div>
+                <div class="repo-lang">// Python</div>
+            </a>
         </div>
     </section>
 
