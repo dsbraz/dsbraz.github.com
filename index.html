@@ -753,7 +753,7 @@
     <section class="section">
         <div class="section-header">Open Source Activity</div>
         <div class="github-chart reveal">
-            <img src="https://ghchart.rshah.org/00d4ff/dsbraz" alt="GitHub Contribution Graph" />
+            <img id="gh-chart" src="https://ghchart.rshah.org/00d4ff/dsbraz" alt="GitHub Contribution Graph" />
         </div>
         <div class="repos-grid reveal">
             <a href="https://github.com/zed-industries/zed" target="_blank" rel="noopener noreferrer" class="repo-card">
@@ -1136,6 +1136,18 @@ reveals.forEach(el => observer.observe(el));
         }).join('');
     } catch (e) {
         container.innerHTML = '<p class="posts-loading">// Could not load posts</p>';
+    }
+})();
+</script>
+
+<script>
+// Force GitHub chart to bypass cache by appending a daily timestamp
+(function() {
+    var img = document.getElementById('gh-chart');
+    if (img) {
+        var today = new Date();
+        var ts = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
+        img.src = img.src + '?t=' + ts;
     }
 })();
 </script>
