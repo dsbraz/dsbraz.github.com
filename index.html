@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Braz — Software Engineer</title>
-    <meta name="description" content="Daniel Braz — Software Engineer & Entrepreneur based in São Paulo, Brazil.">
+    <title>Daniel Braz — CTO/CPO · Contextual AI platforms, agents in production</title>
+    <meta name="description" content="Daniel Braz — CTO/CPO leading Bud at BRQ Digital Products Studio. 25+ years across engineering, product, and strategy. Practitioner-researcher on agentic software engineering. São Paulo, Brazil.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 4 56 56'%3E%3Cdefs%3E%3CradialGradient id='core' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='1'/%3E%3Cstop offset='40%25' stop-color='%2300eeff' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='transparent' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='32' cy='32' rx='6' ry='6' fill='url(%23core)'/%3E%3Cellipse cx='32' cy='32' rx='29' ry='11' fill='none' stroke='%2300eeff' stroke-width='3.5' opacity='1' transform='rotate(-25 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='29' ry='11' fill='none' stroke='%23c77dff' stroke-width='3' opacity='1' transform='rotate(25 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='13' fill='none' stroke='%23ff6ec7' stroke-width='2.5' opacity='0.9' transform='rotate(-60 32 32)'/%3E%3Ccircle cx='12' cy='16' r='3' fill='%2300eeff'/%3E%3Ccircle cx='52' cy='12' r='2.5' fill='%23c77dff'/%3E%3Ccircle cx='50' cy='48' r='3' fill='%23ff6ec7'/%3E%3Ccircle cx='16' cy='52' r='2.5' fill='%2300eeff'/%3E%3Ccircle cx='42' cy='20' r='2' fill='%23ffffff'/%3E%3Ccircle cx='22' cy='42' r='2' fill='%23c77dff'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -448,6 +448,14 @@
             color: var(--text-dim);
         }
 
+        .subsection-label {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-dim);
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
         /* Pinned Repos */
         .repos-grid {
             display: grid;
@@ -493,6 +501,78 @@
             font-family: var(--font-mono);
             font-size: 11px;
             color: var(--text-dim);
+        }
+
+        /* Credentials */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .creds-label {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .creds-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .creds-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .creds-list li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .creds-list li strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .creds-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-primary);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            transition: all 0.2s ease;
+        }
+
+        .chip:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .creds-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         /* Connect / Social */
@@ -586,7 +666,8 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .about-content {
+            .about-content,
+            .credentials-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
             }
@@ -619,13 +700,15 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-label">// Hello, World</div>
+        <div class="hero-label">// CTO/CPO · São Paulo</div>
         <h1 class="hero-name">Daniel <span class="accent">Braz</span></h1>
-        <p class="hero-title">CTO @ BRQ Digital Solutions</p>
+        <p class="hero-title">Contextual AI platforms · Agents in production</p>
         <p class="hero-description">
-            Software engineer and entrepreneur with 25+ years of experience.
-            Currently leading technology at BRQ Digital Solutions — from startups to enterprises,
-            I build teams and systems that make a difference.
+            Technology executive with 25+ years across engineering, product, and strategy.
+            Currently CTO/CPO of the BRQ Digital Products Studio, leading <span class="accent">Bud</span> —
+            a SaaS platform for strategy and performance management with context-aware AI,
+            shipping Bud Coach agents to production across product, Microsoft Teams, and WhatsApp.
+            Practitioner-researcher on agentic software engineering.
         </p>
         <div class="hero-cta">
             <a href="#connect" class="btn btn-filled">Get in Touch</a>
@@ -639,19 +722,27 @@
         <div class="about-content reveal">
             <div class="about-text">
                 <p>
-                    I'm a software engineer, tech executive, and entrepreneur based in São Paulo, Brazil.
-                    Currently serving as CTO at BRQ Digital Solutions, I lead technology strategy
-                    and engineering teams delivering large-scale digital transformation.
+                    Technology executive based in São Paulo, currently CTO/CPO of the
+                    BRQ Digital Products Studio (formerly WEME, acquired by BRQ in September 2025).
+                    I lead the Studio end-to-end — from strategic diagnosis through engineering —
+                    with a proprietary operating model spanning KPIs, governance, platform engineering,
+                    pricing, and allocation for predictability without constraining innovation.
                 </p>
                 <p>
-                    Over the past 25+ years, I've dedicated roughly 60,000 hours to
-                    building software — and I'm proud of quite a few of the "toys" I've shipped.
-                    From early-stage startups like Nuvemshop to global enterprises like Accenture,
-                    I've worked across the entire spectrum as both a consultant and a product builder.
+                    At the center of the work is <span style="color: var(--accent);">Bud</span> —
+                    a SaaS platform for strategy and performance management with context-aware AI.
+                    Bud Coach agents (Goal Setting, Calibration, Performance &amp; Development)
+                    are in production across product, Microsoft Teams, and WhatsApp.
+                    I also structured Backpack, the Studio's internal agent platform,
+                    and proposed the BRQ AI Research Group across four lines:
+                    agentic software engineering, AI-native products, AI governance, and developer productivity.
                 </p>
                 <p>
-                    I'm driven by curiosity, the thrill of solving hard problems,
-                    and the belief that great software can shape the world.
+                    Before BRQ, I led the X Platform business unit at Senior Sistemas (P&amp;L, 0→57 team, BRL 17M pipeline),
+                    Nuvemshop's regional Professional Services for LATAM Enterprise,
+                    and technology at Accenture (USD 450M+ portfolio across Itaú, Cielo, Santander, Globo, Google)
+                    and ThoughtWorks. Earlier, as Director at Concrete, I helped scale the company
+                    from 40 to 700 people and from R$5M to R$150M+ in revenue — leading to its acquisition by Accenture.
                 </p>
             </div>
             <div class="stats-grid">
@@ -660,16 +751,16 @@
                     <div class="stat-label">Years in Tech</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">60K+</div>
-                    <div class="stat-label">Hours Coding</div>
+                    <div class="stat-number">$450M+</div>
+                    <div class="stat-label">Portfolio Led</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">30+</div>
-                    <div class="stat-label">Open Source Repos</div>
+                    <div class="stat-number">40→700</div>
+                    <div class="stat-label">Team Scaled</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">2009</div>
-                    <div class="stat-label">On GitHub Since</div>
+                    <div class="stat-number">2024→</div>
+                    <div class="stat-label">Leading Bud</div>
                 </div>
             </div>
         </div>
@@ -680,34 +771,46 @@
         <div class="section-header">Experience</div>
         <div class="timeline reveal">
             <div class="timeline-item current">
-                <div class="timeline-role">Chief Technology Officer <span class="timeline-current-badge">Current</span></div>
-                <div class="timeline-company">BRQ Digital Solutions</div>
-                <div class="timeline-period">Present</div>
-                <div class="timeline-desc">Leading technology strategy, engineering teams, and digital transformation initiatives at one of Brazil's largest IT services companies.</div>
+                <div class="timeline-role">CTO &amp; CPO — Digital Products Studio <span class="timeline-current-badge">Current</span></div>
+                <div class="timeline-company">BRQ</div>
+                <div class="timeline-period">2024 — present · São Paulo</div>
+                <div class="timeline-desc">Leading the Studio (formerly WEME, acquired by BRQ in Sep 2025) end-to-end. Built and ship Bud — SaaS for strategy &amp; performance with context-aware AI, with Bud Coach agents in production across product, Microsoft Teams, and WhatsApp. Structured Backpack (internal agent platform) and proposed the BRQ AI Research Group. Client engagements with CPFL, BV, Santander, Edenred, Cateno, and Opea.</div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-role">Platform Director & General Manager (GM)</div>
+                <div class="timeline-role">Business Unit Director &amp; General Manager — X Platform</div>
                 <div class="timeline-company">Senior Sistemas</div>
-                <div class="timeline-period">Previous</div>
-                <div class="timeline-desc">Drove engineering excellence and technical leadership at one of Brazil's leading enterprise software companies.</div>
+                <div class="timeline-period">2022 — 2024 · Blumenau</div>
+                <div class="timeline-desc">CEO of the X Platform business unit, owning P&amp;L and all functions (sales, marketing, product, engineering). Built the team from 0 to 57 people in 24 months and generated a consistent BRL 17M revenue pipeline. Mission: turn Senior into a business platform via attraction (dev portal, APIs, SDKs), connection (integration), and gravity (ecosystem value).</div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-role">Platform Director</div>
+                <div class="timeline-role">Global Head of Professional Services, Solutions Eng &amp; Onboarding</div>
                 <div class="timeline-company">Nuvemshop</div>
-                <div class="timeline-period">Previous</div>
-                <div class="timeline-desc">Helped scale the engineering organization at Latin America's leading e-commerce platform for SMBs, building products used by hundreds of thousands of merchants.</div>
+                <div class="timeline-period">2021 — 2022 · São Paulo</div>
+                <div class="timeline-desc">Regional leadership across Brazil, Argentina, and Mexico for Enterprise clients of LATAM's leading SMB e-commerce platform. Built the operation that enables Enterprise customization on top of the core product (APIs, SDKs, environments, partners, PM), generating a consistent MRR pipeline.</div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-role">Technology Director</div>
-                <div class="timeline-company">Thoughtworks</div>
-                <div class="timeline-period">Previous</div>
-                <div class="timeline-desc">Built software and delivered consulting at one of the world's most respected tech consultancies, known for pioneering agile and modern engineering practices.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-role">Technology & Product Director</div>
+                <div class="timeline-role">Technology Director &amp; Business Agility Advisory Executive</div>
                 <div class="timeline-company">Accenture</div>
-                <div class="timeline-period">Previous</div>
-                <div class="timeline-desc">Delivered technology consulting and software solutions for large enterprise clients across multiple industries.</div>
+                <div class="timeline-period">2019 — 2021 · São Paulo</div>
+                <div class="timeline-desc">Technology and sales lead in Financial Services and Communication, Media &amp; Technology — a 2,500+ person unit. Project portfolio exceeding USD 450M serving Itaú, Rede, Cielo, Bradesco, Santander, TIM, Oi, Vivo, Grupo Globo, and Google. Advisor at SolutionsIQ — part of the team that brought the SiQ business agility brand to LATAM.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-role">Business Development Director</div>
+                <div class="timeline-company">ThoughtWorks</div>
+                <div class="timeline-period">2018 — 2019 · São Paulo</div>
+                <div class="timeline-desc">Led the new ventures, innovation, and digital transformation practices. Project portfolio exceeding USD 80M building and launching new digital products with clients including Braskem, BV (Banco Votorantim), and Globo.com.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-role">Business Development Director &amp; Director of Engineering</div>
+                <div class="timeline-company">Concrete (Accenture)</div>
+                <div class="timeline-period">2013 — 2018 · São Paulo</div>
+                <div class="timeline-desc">Member of the executive board. Scaled the company from 40 to 700 people and from BRL 5M to 150M+ in annual revenue, culminating in the acquisition by Accenture. Previously Director of Engineering, owning web &amp; integration delivery and the agility practice.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-role">Earlier — Co-Founder &amp; CTO, Software Engineer</div>
+                <div class="timeline-company">Saci Labs · various</div>
+                <div class="timeline-period">1997 — 2013 · RJ &amp; SP</div>
+                <div class="timeline-desc">Co-founded Saci Labs (2009–2013), serving as CTO. Software Engineer at companies in Rio de Janeiro and São Paulo (1997–2009). Institutional roles: Advisor @ Studio Z Design and Animation (2012–2018) and Representative of CRA-SP at universities (2022–2024).</div>
             </div>
         </div>
     </section>
@@ -717,34 +820,34 @@
         <div class="section-header">What I Do</div>
         <div class="skills-grid reveal">
             <div class="skill-card">
-                <div class="skill-icon">software_engineering</div>
-                <div class="skill-name">Software Engineering</div>
-                <div class="skill-desc">Designing and building robust, scalable systems from the ground up.</div>
+                <div class="skill-icon">agentic_ai</div>
+                <div class="skill-name">Agentic AI Engineering</div>
+                <div class="skill-desc">Shipping production agents — Bud Coach (Goal Setting, Calibration, Performance &amp; Development) — with context-aware AI and multi-channel delivery.</div>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">architecture</div>
-                <div class="skill-name">System Architecture</div>
-                <div class="skill-desc">Crafting the blueprints that turn complex requirements into clean, maintainable solutions.</div>
+                <div class="skill-icon">platform_strategy</div>
+                <div class="skill-name">Platform &amp; Product Strategy</div>
+                <div class="skill-desc">End-to-end studio leadership: KPIs (NPS, WAU, margin, utilization), governance, platform engineering, pricing, and allocation.</div>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">entrepreneurship</div>
-                <div class="skill-name">Entrepreneurship</div>
-                <div class="skill-desc">Turning ideas into products. Building things that people actually use and love.</div>
+                <div class="skill-icon">engineering_leadership</div>
+                <div class="skill-name">Engineering Leadership at Scale</div>
+                <div class="skill-desc">Scaling organizations (40→700 at Concrete, 0→57 at Senior). P&amp;L ownership, executive board work, and full-funnel operation.</div>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">consulting</div>
-                <div class="skill-name">Tech Consulting</div>
-                <div class="skill-desc">Helping teams and companies make better technical decisions and ship faster.</div>
+                <div class="skill-icon">ai_research</div>
+                <div class="skill-name">AI Research &amp; Practice</div>
+                <div class="skill-desc">Structured the BRQ AI Research Group across four lines: agentic SWE, AI-native products, AI governance, and developer productivity.</div>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">leadership</div>
-                <div class="skill-name">Technical Leadership</div>
-                <div class="skill-desc">Guiding engineering teams with clarity, empathy, and a bias for action.</div>
+                <div class="skill-icon">enterprise_advisory</div>
+                <div class="skill-name">Enterprise Tech Advisory</div>
+                <div class="skill-desc">USD 450M+ portfolios across financial services, telco, and media — Itaú, Cielo, Santander, Globo, Google, Braskem, BV, and more.</div>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">open_source</div>
-                <div class="skill-name">Open Source</div>
-                <div class="skill-desc">Contributing to and maintaining projects that give back to the community.</div>
+                <div class="skill-icon">writing_and_essays</div>
+                <div class="skill-name">Writing on Agentic SWE</div>
+                <div class="skill-desc">Practitioner essays on exploration-first specs, the wider harness, and the role of human judgment in agentic systems.</div>
             </div>
         </div>
     </section>
@@ -789,11 +892,86 @@
         </div>
     </section>
 
-    <!-- Blog -->
+    <!-- Research & Writing -->
     <section class="section">
-        <div class="section-header">Writing</div>
+        <div class="section-header">Research &amp; Writing</div>
+        <div class="subsection-label reveal">// Selected essays — agentic software engineering</div>
+        <div class="posts-grid reveal">
+            <a href="https://medium.com/gitconnected/the-wider-harness-c5c061310195" target="_blank" rel="noopener noreferrer" class="post-card">
+                <div class="post-date">Essay · Level Up Coding</div>
+                <div class="post-title">The wider harness</div>
+                <div class="post-excerpt">Harness engineering named the work around the model; building digital workers asks the harness to stretch one layer further — into the operation that sustains the agent in production.</div>
+                <div class="post-tags"><span class="post-tag">agentic-swe</span><span class="post-tag">harness</span></div>
+            </a>
+            <a href="https://medium.com/gitconnected/the-missing-step-in-agentic-software-engineering-why-your-agents-need-an-exploration-phase-before-fe736abd8c99" target="_blank" rel="noopener noreferrer" class="post-card">
+                <div class="post-date">Essay · Level Up Coding</div>
+                <div class="post-title">The missing step in Agentic Software Engineering</div>
+                <div class="post-excerpt">Why the exploration phase precedes and bounds the quality of the specification in specification-driven development with agents.</div>
+                <div class="post-tags"><span class="post-tag">spec-driven</span><span class="post-tag">exploration</span></div>
+            </a>
+            <a href="https://medium.com/gitconnected/building-a-daily-ops-agent-with-langsmith-fleet-an-architecture-case-study-15858ba019f6" target="_blank" rel="noopener noreferrer" class="post-card">
+                <div class="post-date">Case study · Level Up Coding</div>
+                <div class="post-title">Building a daily ops agent with LangSmith Fleet</div>
+                <div class="post-excerpt">From no-code prompt to production agent — every structural decision along the way, with the architecture trade-offs laid bare.</div>
+                <div class="post-tags"><span class="post-tag">architecture</span><span class="post-tag">langsmith</span></div>
+            </a>
+            <a href="https://medium.com/gitconnected/the-death-of-craft-when-ai-agents-build-the-software-who-mourns-the-beauty-of-code-036dea643161" target="_blank" rel="noopener noreferrer" class="post-card">
+                <div class="post-date">Essay · Level Up Coding</div>
+                <div class="post-title">The Death of Craft</div>
+                <div class="post-excerpt">When AI agents build the software, who mourns the beauty of code? An essay on what happens to the aesthetics and craft of code when agents take over construction.</div>
+                <div class="post-tags"><span class="post-tag">craft</span><span class="post-tag">philosophy</span></div>
+            </a>
+            <a href="https://medium.com/@dsbraz/the-compiler-was-never-the-right-analogy-b721b1cf5e88" target="_blank" rel="noopener noreferrer" class="post-card">
+                <div class="post-date">Essay · Medium</div>
+                <div class="post-title">The compiler was never the right analogy</div>
+                <div class="post-excerpt">Why comparing LLMs to compilers is the wrong analogy — and what that changes for review, responsibility, and human judgment.</div>
+                <div class="post-tags"><span class="post-tag">llms</span><span class="post-tag">judgment</span></div>
+            </a>
+            <a href="https://medium.com/gitconnected/the-rush-nobody-asked-for-why-the-human-in-the-loop-was-never-the-bottleneck-1a554d90fce9" target="_blank" rel="noopener noreferrer" class="post-card">
+                <div class="post-date">Essay · Level Up Coding</div>
+                <div class="post-title">The rush nobody asked for</div>
+                <div class="post-excerpt">The unexamined assumption that human supervision is the bottleneck in agentic work — and why it is wrong.</div>
+                <div class="post-tags"><span class="post-tag">human-in-the-loop</span></div>
+            </a>
+        </div>
+        <div class="subsection-label reveal" style="margin-top: 56px;">// More from Medium</div>
         <div id="blog-posts" class="posts-grid reveal">
             <p class="posts-loading">// Loading posts...</p>
+        </div>
+    </section>
+
+    <!-- Credentials -->
+    <section class="section">
+        <div class="section-header">Credentials</div>
+        <div class="credentials-grid reveal">
+            <div>
+                <div class="creds-label">// Education</div>
+                <ul class="creds-list">
+                    <li><strong>MBA, Finance</strong> — Insper / Ibmec</li>
+                    <li><strong>BSc, Mathematics &amp; Computer Science</strong> — Universidade Estácio de Sá</li>
+                    <li><strong>BSc, Business Administration</strong> — Centro Universitário SENAC</li>
+                    <li><strong>Executive Education</strong> — IESE Business School (Leader Coach &amp; Adaptive Leadership), Johns Hopkins (Data Science), FGV (Private Equity &amp; VC), FIA (Systems Thinking), Mackenzie (Marketing)</li>
+                </ul>
+            </div>
+            <div>
+                <div class="creds-label">// Stack &amp; Tooling</div>
+                <div class="creds-chips">
+                    <span class="chip">Go</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">.NET / C#</span>
+                    <span class="chip">Java</span>
+                    <span class="chip">LLMs / RAG</span>
+                    <span class="chip">Multi-model</span>
+                    <span class="chip">Claude Code</span>
+                    <span class="chip">Cursor</span>
+                    <span class="chip">Codex</span>
+                    <span class="chip">Linux</span>
+                    <span class="chip">GCP</span>
+                    <span class="chip">AWS</span>
+                </div>
+                <div class="creds-label" style="margin-top: 28px;">// Languages</div>
+                <div class="creds-text">Portuguese (native) · English (fluent) · Spanish (intermediate)</div>
+            </div>
         </div>
     </section>
 
@@ -1109,14 +1287,28 @@ reveals.forEach(el => observer.observe(el));
 // Fetch Medium posts
 (async function loadPosts() {
     const container = document.getElementById('blog-posts');
+    // Curated essays already shown above — filter them out of the feed
+    const curatedSlugs = [
+        'the-wider-harness',
+        'the-missing-step-in-agentic-software-engineering',
+        'building-a-daily-ops-agent-with-langsmith-fleet',
+        'the-death-of-craft',
+        'the-compiler-was-never-the-right-analogy',
+        'the-rush-nobody-asked-for'
+    ];
     try {
         const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@dsbraz');
         const data = await res.json();
         if (data.status !== 'ok' || !data.items.length) {
-            container.innerHTML = '<p class="posts-loading">// No posts found</p>';
+            container.innerHTML = '<p class="posts-loading">// No additional posts</p>';
             return;
         }
-        container.innerHTML = data.items.slice(0, 6).map(post => {
+        const filtered = data.items.filter(p => !curatedSlugs.some(s => p.link.includes(s)));
+        if (!filtered.length) {
+            container.innerHTML = '<p class="posts-loading">// All recent posts are featured above</p>';
+            return;
+        }
+        container.innerHTML = filtered.slice(0, 6).map(post => {
             const date = new Date(post.pubDate).toLocaleDateString('en-US', {
                 year: 'numeric', month: 'short', day: 'numeric'
             });
