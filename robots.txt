@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dsbraz.com/sitemap.xml

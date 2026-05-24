@@ -1,0 +1,16 @@
+{
+  "name": "Daniel Braz — CTO/CPO",
+  "short_name": "Daniel Braz",
+  "description": "Technology executive with 25+ years across engineering, product, and strategy. Leading Bud — a SaaS platform for strategy and performance with context-aware AI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e17",
+  "theme_color": "#00d4ff",
+  "icons": [
+    {
+      "src": "profile.jpg",
+      "sizes": "400x400",
+      "type": "image/jpeg"
+    }
+  ]
+}
