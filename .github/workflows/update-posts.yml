@@ -1,0 +1,64 @@
+name: Update Medium Posts
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-posts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch Medium RSS feed and generate posts.json
+        run: |
+          curl -s "https://medium.com/feed/@dsbraz" | python3 -c "
+          import sys, json, xml.etree.ElementTree as ET
+
+          xml = sys.stdin.read()
+          root = ET.fromstring(xml)
+          ns = {'content': 'http://purl.org/rss/1.0/modules/content/', 'dc': 'http://purl.org/dc/elements/1.1/'}
+
+          items = []
+          for item in root.findall('.//item'):
+              title = item.find('title')
+              title = title.text if title is not None else ''
+              link = item.find('link')
+              link = link.text if link is not None else ''
+              pubDate = item.find('pubDate')
+              pubDate = pubDate.text if pubDate is not None else ''
+              desc = item.find('description')
+              description = desc.text if desc is not None else ''
+              content_encoded = item.find('content:encoded', ns)
+              if content_encoded is not None and content_encoded.text:
+                  description = content_encoded.text
+              categories = [cat.text for cat in item.findall('category') if cat.text]
+              items.append({
+                  'title': title,
+                  'pubDate': pubDate,
+                  'link': link,
+                  'description': description,
+                  'categories': categories
+              })
+
+          output = {'status': 'ok', 'items': items}
+          with open('posts.json', 'w', encoding='utf-8') as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
+          "
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet posts.json; then
+            echo "No changes to posts.json"
+          else
+            git add posts.json
+            git commit -m "Update posts.json from Medium RSS feed"
+            git push
+          fi

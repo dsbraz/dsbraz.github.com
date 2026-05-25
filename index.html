@@ -2764,7 +2764,7 @@ reveals.forEach(el => observer.observe(el));
 (async function loadPosts() {
     const container = document.getElementById('blog-posts');
     try {
-        const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@dsbraz');
+        const res = await fetch('./posts.json');
         const data = await res.json();
         if (data.status !== 'ok' || !data.items.length) {
             container.innerHTML = '<p class="posts-loading">// No posts found</p>';
