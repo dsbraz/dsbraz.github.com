@@ -1,6 +1,6 @@
 # dsbraz.com
 
-Personal portfolio website for Daniel Braz — Software Engineer & CTO.
+Personal portfolio website for Daniel Braz — technology executive and product builder (CTO @ Bud · CTO @ BRQ).
 
 ## Overview
 
@@ -9,11 +9,12 @@ Single-page portfolio built with vanilla HTML, CSS, and JavaScript. Features an 
 ## Sections
 
 - **Hero** — Animated introduction with CTA buttons
-- **About** — Professional background and stats (25+ years in tech)
-- **Experience** — Career timeline (BRQ Digital Solutions, Nuvemshop, Thoughtworks, Accenture, etc.)
-- **Skills** — Software Engineering, System Architecture, Entrepreneurship, Tech Consulting, Technical Leadership, Open Source
-- **Open Source Activity** — GitHub contribution graph
-- **Writing** — Latest Medium blog posts (fetched dynamically)
+- **About** — Professional background and stats (years building products, AI agents in production, team scale, essays)
+- **Research & Writing** — Latest Medium blog posts (from `posts.json`)
+- **Experience** — Career timeline (Bud, BRQ, Senior Sistemas, Nuvemshop, Accenture, ThoughtWorks, Concrete, Saci Labs)
+- **What I Do** — Agentic AI Engineering, Platform & Product Strategy, Engineering Leadership at Scale, AI Research & Practice, Embedded Product Delivery, Writing on Agentic SWE
+- **Open Source Activity** — GitHub contribution graph and pinned repos
+- **Credentials** — Education, stack & tooling, languages
 - **Connect** — GitHub, LinkedIn, X/Twitter, Medium
 
 ## Tech Stack
