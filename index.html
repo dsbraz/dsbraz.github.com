@@ -3,24 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Braz — CTO @ Bud · CTO @ BRQ · AI agents in production</title>
+    <title>Daniel Braz — CTO · CIO · CPO · AI agents in production</title>
     <meta name="description" content="Daniel Braz — CTO who builds digital products: AI agents in production at Bud, embedded product teams at BRQ. Writing on agentic software engineering.">
+    <link rel="canonical" href="https://dsbraz.com/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dsbraz.com">
-    <meta property="og:title" content="Daniel Braz — CTO @ Bud · CTO @ BRQ · AI agents in production">
+    <meta property="og:title" content="Daniel Braz — CTO · CIO · CPO · AI agents in production">
     <meta property="og:description" content="Technology executive with 25+ years building digital products — AI agents in production at Bud, embedded product teams inside enterprises at BRQ. Writing on agentic software engineering.">
-    <meta property="og:image" content="https://dsbraz.com/profile.jpg">
+    <meta property="og:image" content="https://dsbraz.com/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Daniel Braz — CTO · CIO · CPO">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://dsbraz.com">
-    <meta name="twitter:title" content="Daniel Braz — CTO @ Bud · CTO @ BRQ · AI agents in production">
+    <meta name="twitter:title" content="Daniel Braz — CTO · CIO · CPO · AI agents in production">
     <meta name="twitter:description" content="Technology executive with 25+ years building digital products — AI agents in production at Bud, embedded product teams inside enterprises at BRQ. Writing on agentic software engineering.">
-    <meta name="twitter:image" content="https://dsbraz.com/profile.jpg">
+    <meta name="twitter:image" content="https://dsbraz.com/og.jpg">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Daniel Braz",
-        "jobTitle": "CTO",
+        "jobTitle": ["CTO", "CIO", "CPO"],
+        "knowsLanguage": ["pt-BR", "en", "es"],
+        "alumniOf": [
+            {"@type": "EducationalOrganization", "name": "Ibmec"},
+            {"@type": "EducationalOrganization", "name": "IESE Business School"},
+            {"@type": "EducationalOrganization", "name": "Universidade Estácio de Sá"},
+            {"@type": "EducationalOrganization", "name": "Centro Universitário SENAC"}
+        ],
         "worksFor": [
             {
                 "@type": "Organization",
@@ -50,6 +61,8 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 4 56 56'%3E%3Cdefs%3E%3CradialGradient id='core' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='1'/%3E%3Cstop offset='40%25' stop-color='%2300eeff' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='transparent' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='32' cy='32' rx='6' ry='6' fill='url(%23core)'/%3E%3Cellipse cx='32' cy='32' rx='29' ry='11' fill='none' stroke='%2300eeff' stroke-width='3.5' opacity='1' transform='rotate(-25 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='29' ry='11' fill='none' stroke='%23c77dff' stroke-width='3' opacity='1' transform='rotate(25 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='13' fill='none' stroke='%23ff6ec7' stroke-width='2.5' opacity='0.9' transform='rotate(-60 32 32)'/%3E%3Ccircle cx='12' cy='16' r='3' fill='%2300eeff'/%3E%3Ccircle cx='52' cy='12' r='2.5' fill='%23c77dff'/%3E%3Ccircle cx='50' cy='48' r='3' fill='%23ff6ec7'/%3E%3Ccircle cx='16' cy='52' r='2.5' fill='%2300eeff'/%3E%3Ccircle cx='42' cy='20' r='2' fill='%23ffffff'/%3E%3Ccircle cx='22' cy='42' r='2' fill='%23c77dff'/%3E%3C/svg%3E">
     <link rel="manifest" href="manifest.json">
+    <!-- Analytics: GoatCounter (privacy-friendly, no cookies). Replace CODE with your GoatCounter site code to enable. -->
+    <!-- <script data-goatcounter="https://CODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1643,6 +1656,17 @@
             }
         }
 
+        .talk-link {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent);
+            text-decoration: none;
+            margin-left: 6px;
+            white-space: nowrap;
+            opacity: 0.85;
+        }
+        .talk-link:hover { opacity: 1; text-decoration: underline; }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-inner {
@@ -1651,11 +1675,32 @@
                 gap: 32px;
             }
 
+            .hero-visual {
+                order: -1;
+            }
+
             .hero-avatar {
                 width: 140px;
                 height: 140px;
                 font-size: 48px;
-                order: -1;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .contrib-header {
+                min-width: 0;
+                flex-wrap: wrap;
+                gap: 8px 16px;
             }
 
             .hero-description {
@@ -1701,14 +1746,50 @@
         }
 
         @media (max-width: 480px) {
+            .header-nav {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px 0;
+                row-gap: 8px;
+                justify-content: center;
+            }
+
+            .header-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 6px 14px;
+            }
+
+            .header-links a {
+                font-size: 10px;
+                letter-spacing: 0.5px;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .stat-number {
+                font-size: 26px;
+            }
+
+            .timeline-role {
+                font-size: 16px;
             }
 
             .connect-grid {
                 grid-template-columns: 1fr;
             }
 
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 16px;
+            }
         }
     </style>
 </head>
@@ -1732,8 +1813,9 @@
         <a href="#" class="header-logo">dsbraz</a>
         <ul class="header-links">
             <li><a href="#about" data-section="about">About</a></li>
-            <li><a href="#writing" data-section="writing">Writing</a></li>
             <li><a href="#experience" data-section="experience">Experience</a></li>
+            <li><a href="#talks" data-section="talks">Talks</a></li>
+            <li><a href="#writing" data-section="writing">Writing</a></li>
             <li><a href="#skills" data-section="skills">Skills</a></li>
             <li><a href="#connect" data-section="connect">Connect</a></li>
         </ul>
@@ -1751,13 +1833,13 @@
                 <p class="hero-title">Contextual AI platforms · Agents in production</p>
                 <p class="hero-description">
                     I build digital products and the teams that ship them — for 25+ years, and still hands-on.
-                    CTO of <a href="https://getbud.co" target="_blank" rel="noopener noreferrer" class="accent glow-text">Bud</a>, an independent SaaS company where I build the product end-to-end:
+                    CTO of <a href="https://getbud.co" target="_blank" rel="noopener noreferrer" class="accent glow-text">Bud</a>, a SaaS company where I build the product end-to-end:
                     <span class="accent glow-text">AI agents</span> for strategy and performance, in production across the product, Microsoft Teams, and WhatsApp.
                     Also CTO at <a href="https://brq.com" target="_blank" rel="noopener noreferrer" class="accent glow-text">BRQ</a>, where embedded product teams build and operate digital products inside large enterprises.
                     I write about <span class="accent glow-text">agentic software engineering</span> as a practitioner.
                 </p>
                 <div class="hero-cta">
-                    <a href="#writing" class="btn btn-filled">Read My Writing</a>
+                    <a href="#talks" class="btn btn-filled">Talks &amp; Writing</a>
                     <a href="#connect" class="btn">Get in Touch</a>
                 </div>
             </div>
@@ -1779,7 +1861,7 @@
                 <p>I've spent 25+ years building digital products — as an executive, and still hands-on.</p>
                 <p>
                     I'm CTO of <a href="https://getbud.co" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Bud</a> —
-                    an independent SaaS company where I build the product end-to-end, 0→1.
+                    a SaaS company where I build the product end-to-end, 0→1.
                     Bud is a platform for strategy and performance management with context-aware AI: its Bud Coach agents
                     (Goal Setting, Calibration, Performance &amp; Development) reason over each company's strategy, goals,
                     and performance data — not generic prompts — and run in production across the product, Microsoft Teams, and WhatsApp.
@@ -1811,7 +1893,7 @@
             </div>
             <div class="stat-card">
                 <div class="stat-number">3</div>
-                <div class="stat-label">AI Agents in Production</div>
+                <div class="stat-label">Channels in Production</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">40→700</div>
@@ -1824,33 +1906,39 @@
         </div>
     </section>
 
-    <!-- Research & Writing -->
-    <section id="writing" class="section" data-section-name="writing">
-        <div class="section-header">Research &amp; Writing</div>
-        <div id="blog-posts" class="posts-grid reveal">
-            <div class="skeleton-card">
-                <div class="skeleton-thumb skeleton"></div>
-                <div class="skeleton-body">
-                    <div class="skeleton-line short skeleton"></div>
-                    <div class="skeleton-line skeleton"></div>
-                    <div class="skeleton-line medium skeleton"></div>
-                </div>
+    <!-- What I Do -->
+    <section id="skills" class="section" data-section-name="skills">
+        <div class="section-header">What I Do</div>
+        <div class="skills-grid reveal">
+            <div class="skill-card spotlight-card">
+                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg></div>
+                <div class="skill-name">Agentic AI Engineering</div>
+                <div class="skill-desc">Shipping production agents at Bud — Bud Coach (Goal Setting, Calibration, Performance &amp; Development) — with context-aware AI and multi-channel delivery.</div>
             </div>
-            <div class="skeleton-card">
-                <div class="skeleton-thumb skeleton"></div>
-                <div class="skeleton-body">
-                    <div class="skeleton-line short skeleton"></div>
-                    <div class="skeleton-line skeleton"></div>
-                    <div class="skeleton-line medium skeleton"></div>
-                </div>
+            <div class="skill-card spotlight-card">
+                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                <div class="skill-name">Platform &amp; Product Strategy</div>
+                <div class="skill-desc">End-to-end product leadership: discovery, roadmap, platform engineering, and outcome KPIs (NPS, WAU) — from strategy to what ships.</div>
             </div>
-            <div class="skeleton-card">
-                <div class="skeleton-thumb skeleton"></div>
-                <div class="skeleton-body">
-                    <div class="skeleton-line short skeleton"></div>
-                    <div class="skeleton-line skeleton"></div>
-                    <div class="skeleton-line medium skeleton"></div>
-                </div>
+            <div class="skill-card spotlight-card">
+                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div class="skill-name">Engineering Leadership at Scale</div>
+                <div class="skill-desc">Scaling organizations (40→700 at Concrete, 0→57 at Senior). P&amp;L ownership, executive board work, and hiring and retaining teams that ship.</div>
+            </div>
+            <div class="skill-card spotlight-card">
+                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 2v7.31"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M12 15a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
+                <div class="skill-name">AI Research &amp; Writing</div>
+                <div class="skill-desc">Practitioner research across agentic SWE, AI-native products, AI governance, and developer productivity — published as essays on exploration-first specs, the harness around the model, and the role of human judgment in agentic systems.</div>
+            </div>
+            <div class="skill-card spotlight-card">
+                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
+                <div class="skill-name">Building Products Inside Enterprises</div>
+                <div class="skill-desc">Building and operating digital products inside large enterprises, with teams embedded as an extension of the client's own product org.</div>
+            </div>
+            <div class="skill-card spotlight-card">
+                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+                <div class="skill-name">Technology &amp; AI Governance in Large Enterprises</div>
+                <div class="skill-desc">Operating models for technology in regulated, multi-vendor environments: governance rituals, platform standards, AI policy and responsible-AI practice, and the decision cadence that keeps transformation programs moving.</div>
             </div>
         </div>
     </section>
@@ -1869,7 +1957,13 @@
                 <div class="timeline-role">CTO <span class="timeline-current-badge">Current</span></div>
                 <div class="timeline-company">Bud</div>
                 <div class="timeline-period">2024 — present · São Paulo</div>
-                <div class="timeline-desc">CTO of Bud, an independent SaaS company. Building the product end-to-end, 0→1: strategy &amp; performance management with context-aware AI, with Bud Coach agents in production across the product, Microsoft Teams, and WhatsApp — used by companies like General Mills, Sakata, and Eniac.</div>
+                <div class="timeline-desc">CTO of Bud, a SaaS company. Building the product end-to-end, 0→1: strategy &amp; performance management with context-aware AI, with Bud Coach agents in production across the product, Microsoft Teams, and WhatsApp — used by companies like General Mills, Sakata, and Eniac.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-role">CTO</div>
+                <div class="timeline-company">WEME</div>
+                <div class="timeline-period">2024 — 2025 · São Paulo</div>
+                <div class="timeline-desc">CTO of WEME, the digital products studio acquired by BRQ in September 2025 — now BRQ's Digital Products Studio — and the birthplace of Bud. Defined the studio's operating model (KPIs, governance, platform engineering, systematic reuse) and built Backpack, its internal agent platform.</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-role">Platform Director</div>
@@ -1910,39 +2004,111 @@
         </div>
     </section>
 
-    <!-- What I Do -->
-    <section id="skills" class="section" data-section-name="skills">
-        <div class="section-header">What I Do</div>
-        <div class="skills-grid reveal">
-            <div class="skill-card spotlight-card">
-                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg></div>
-                <div class="skill-name">Agentic AI Engineering</div>
-                <div class="skill-desc">Shipping production agents at Bud — Bud Coach (Goal Setting, Calibration, Performance &amp; Development) — with context-aware AI and multi-channel delivery.</div>
+    <!-- Talks -->
+    <section id="talks" class="section" data-section-name="talks">
+        <div class="section-header">Talks</div>
+        <div class="timeline reveal">
+            <div class="timeline-item">
+                <div class="timeline-role">Digital Workers</div>
+                <div class="timeline-company">Travel Tech Hub</div>
+                <div class="timeline-period">Aug 2026 · São Paulo</div>
+                <div class="timeline-desc">Talk on hiring, onboarding and operating a digital worker in production — the harness around the model: tools, context, verification, blast radius and the human loop. <a class="talk-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7497821095635595264/" target="_blank" rel="noopener noreferrer">→ post</a></div>
             </div>
-            <div class="skill-card spotlight-card">
-                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-                <div class="skill-name">Platform &amp; Product Strategy</div>
-                <div class="skill-desc">End-to-end product leadership: discovery, roadmap, platform engineering, and outcome KPIs (NPS, WAU) — from strategy to what ships.</div>
+            <div class="timeline-item">
+                <div class="timeline-role">Digital Workers: When AI Becomes Part of the Workforce</div>
+                <div class="timeline-company">Runway to Web Summit Rio</div>
+                <div class="timeline-period">Apr 2026 · São Paulo</div>
+                <div class="timeline-desc">Panel with Marcelo Echeverria and Gustavo Gorenstein on what changes when agents stop being tools and join the workforce. <a class="talk-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7450151079050190848/" target="_blank" rel="noopener noreferrer">→ post</a></div>
             </div>
-            <div class="skill-card spotlight-card">
-                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <div class="skill-name">Engineering Leadership at Scale</div>
-                <div class="skill-desc">Scaling organizations (40→700 at Concrete, 0→57 at Senior). P&amp;L ownership, executive board work, and hiring and retaining teams that ship.</div>
+            <div class="timeline-item">
+                <div class="timeline-role">AI for Leaders — Workshop</div>
+                <div class="timeline-company">AI Bootcamp · Singularity Brazil</div>
+                <div class="timeline-period">Oct 2025 · São Paulo</div>
+                <div class="timeline-desc">Workshop with Diego Dalmaso: how leadership teams map AI opportunities and tie them to strategic drivers — from pilot to operation. <a class="talk-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7390045242697256960/" target="_blank" rel="noopener noreferrer">→ post</a></div>
             </div>
-            <div class="skill-card spotlight-card">
-                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 2v7.31"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M12 15a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
-                <div class="skill-name">AI Research &amp; Practice</div>
-                <div class="skill-desc">Practitioner research across agentic SWE, AI-native products, AI governance, and developer productivity — published as working essays.</div>
+            <div class="timeline-item">
+                <div class="timeline-role">Hyper-personalization at Scale</div>
+                <div class="timeline-company">Web Summit Rio</div>
+                <div class="timeline-period">Apr 2025 · Rio de Janeiro</div>
+                <div class="timeline-desc">Talk with Sergio Lopes dos Santos on what hyper-personalizing experiences really means and what changes in product and data architecture when AI enters the loop. <a class="talk-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7325153364697083904/" target="_blank" rel="noopener noreferrer">→ post</a></div>
             </div>
-            <div class="skill-card spotlight-card">
-                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
-                <div class="skill-name">Embedded Product Delivery</div>
-                <div class="skill-desc">Building and operating digital products inside large enterprises, with teams embedded as an extension of the client's own product org.</div>
+            <div class="timeline-item">
+                <div class="timeline-role">How to Leverage a Technology Partner Network</div>
+                <div class="timeline-company">Rio Innovation Week</div>
+                <div class="timeline-period">Aug 2024 · Rio de Janeiro</div>
+                <div class="timeline-desc">Panel on the Conecta Varejo track, with André Abreu (BossaBox) and others, on building and running technology partner ecosystems. <a class="talk-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7227677541698793473/" target="_blank" rel="noopener noreferrer">→ post</a></div>
             </div>
-            <div class="skill-card spotlight-card">
-                <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-                <div class="skill-name">Writing on Agentic SWE</div>
-                <div class="skill-desc">Practitioner essays on exploration-first specs, the wider harness, and the role of human judgment in agentic systems.</div>
+            <div class="timeline-item">
+                <div class="timeline-role">AI Panels — Four Editions</div>
+                <div class="timeline-company">Runway to Web Summit Rio</div>
+                <div class="timeline-period">2024 — 2026 · São Paulo</div>
+                <div class="timeline-desc">Speaker and host across the four editions of the Web Summit Rio warm-up co-hosted by WEME and BRQ: from copilots to agents, conversational AI in digital products, and digital workers. <a class="talk-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7378965008010928128/" target="_blank" rel="noopener noreferrer">→ post</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Writing -->
+    <section id="writing" class="section" data-section-name="writing">
+        <div class="section-header">Research &amp; Writing</div>
+        <div id="blog-posts" class="posts-grid reveal">
+            <div class="skeleton-card">
+                <div class="skeleton-thumb skeleton"></div>
+                <div class="skeleton-body">
+                    <div class="skeleton-line short skeleton"></div>
+                    <div class="skeleton-line skeleton"></div>
+                    <div class="skeleton-line medium skeleton"></div>
+                </div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton-thumb skeleton"></div>
+                <div class="skeleton-body">
+                    <div class="skeleton-line short skeleton"></div>
+                    <div class="skeleton-line skeleton"></div>
+                    <div class="skeleton-line medium skeleton"></div>
+                </div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton-thumb skeleton"></div>
+                <div class="skeleton-body">
+                    <div class="skeleton-line short skeleton"></div>
+                    <div class="skeleton-line skeleton"></div>
+                    <div class="skeleton-line medium skeleton"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials -->
+    <section class="section">
+        <div class="section-header">Credentials</div>
+        <div class="credentials-grid reveal">
+            <div>
+                <div class="creds-label">// Education</div>
+                <ul class="creds-list">
+                    <li><strong>MBA, Finance</strong> — Ibmec</li>
+                    <li><strong>Mathematics &amp; Computer Science</strong> — Universidade Estácio de Sá</li>
+                    <li><strong>Business Management</strong> — Centro Universitário SENAC</li>
+                    <li><strong>Executive Education</strong> — IESE Business School (Leader Coach &amp; Adaptive Leadership), Johns Hopkins (Data Science), FGV (Private Equity &amp; VC), FIA (Systems Thinking), Mackenzie (Marketing)</li>
+                </ul>
+            </div>
+            <div>
+                <div class="creds-label">// Stack &amp; Tooling</div>
+                <div class="creds-chips">
+                    <span class="chip">Go</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">.NET / C#</span>
+                    <span class="chip">Java</span>
+                    <span class="chip">LLMs / RAG</span>
+                    <span class="chip">Multi-model</span>
+                    <span class="chip">Claude Code</span>
+                    <span class="chip">Cursor</span>
+                    <span class="chip">Codex</span>
+                    <span class="chip">Linux</span>
+                    <span class="chip">GCP</span>
+                    <span class="chip">AWS</span>
+                </div>
+                <div class="creds-label" style="margin-top: 28px;">// Languages</div>
+                <div class="creds-text">Portuguese (native) · English (fluent) · Spanish (intermediate)</div>
             </div>
         </div>
     </section>
@@ -1958,7 +2124,7 @@
                 </div>
             </div>
             <div id="contrib-grid" class="contrib-grid">
-                <img src="https://ghchart.rshah.org/00d4ff/dsbraz" alt="GitHub contributions" loading="lazy">
+                <img src="https://ghchart.rshah.org/00d4ff/dsbraz" alt="GitHub contributions" loading="lazy" onerror="this.closest('.github-chart').style.display='none'">
             </div>
         </div>
         <div class="repos-grid reveal">
@@ -1995,45 +2161,17 @@
         </div>
     </section>
 
-    <!-- Credentials -->
-    <section class="section">
-        <div class="section-header">Credentials</div>
-        <div class="credentials-grid reveal">
-            <div>
-                <div class="creds-label">// Education</div>
-                <ul class="creds-list">
-                    <li><strong>MBA, Finance</strong> — Insper / Ibmec</li>
-                    <li><strong>BSc, Mathematics &amp; Computer Science</strong> — Universidade Estácio de Sá</li>
-                    <li><strong>BSc, Business Administration</strong> — Centro Universitário SENAC</li>
-                    <li><strong>Executive Education</strong> — IESE Business School (Leader Coach &amp; Adaptive Leadership), Johns Hopkins (Data Science), FGV (Private Equity &amp; VC), FIA (Systems Thinking), Mackenzie (Marketing)</li>
-                </ul>
-            </div>
-            <div>
-                <div class="creds-label">// Stack &amp; Tooling</div>
-                <div class="creds-chips">
-                    <span class="chip">Go</span>
-                    <span class="chip">Python</span>
-                    <span class="chip">.NET / C#</span>
-                    <span class="chip">Java</span>
-                    <span class="chip">LLMs / RAG</span>
-                    <span class="chip">Multi-model</span>
-                    <span class="chip">Claude Code</span>
-                    <span class="chip">Cursor</span>
-                    <span class="chip">Codex</span>
-                    <span class="chip">Linux</span>
-                    <span class="chip">GCP</span>
-                    <span class="chip">AWS</span>
-                </div>
-                <div class="creds-label" style="margin-top: 28px;">// Languages</div>
-                <div class="creds-text">Portuguese (native) · English (fluent) · Spanish (intermediate)</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Connect -->
     <section id="connect" class="section" data-section-name="connect">
         <div class="section-header">Connect</div>
         <div class="connect-grid reveal">
+            <a href="mailto:dsbraz&#64;dsbraz&#46;com" class="social-link">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                <div>
+                    <div class="social-name">Email</div>
+                    <div class="social-handle">dsbraz&#64;dsbraz.com</div>
+                </div>
+            </a>
             <a href="https://github.com/dsbraz" target="_blank" rel="noopener noreferrer" class="social-link">
                 <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 <div>
@@ -2065,17 +2203,19 @@
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-brand">
                 <span class="footer-logo">Daniel Braz</span>
-                <span class="footer-tagline">CTO @ Bud · CTO @ BRQ</span>
+                <span class="footer-tagline">CTO · CIO · CPO</span>
             </div>
             <nav class="footer-nav">
                 <a href="#about">About</a>
-                <a href="#writing">Writing</a>
                 <a href="#experience">Experience</a>
+                <a href="#talks">Talks</a>
+                <a href="#writing">Writing</a>
                 <a href="#skills">Skills</a>
                 <a href="#connect">Connect</a>
             </nav>
@@ -2352,7 +2492,7 @@ window.addEventListener('resize', () => {
 (function typeHeroLabel() {
     const label = document.getElementById('hero-label');
     if (!label) return;
-    const text = '// CTO @ Bud · CTO @ BRQ';
+    const text = '// CTO · CIO · CPO';
     let i = 0;
     function type() {
         if (i <= text.length) {
@@ -2592,7 +2732,7 @@ reveals.forEach(el => observer.observe(el));
 // Hero parallax on scroll
 (function initHeroParallax() {
     const heroInner = document.querySelector('.hero-inner');
-    if (!heroInner) return;
+    if (!heroInner || window.matchMedia('(max-width: 768px)').matches) return;
     window.addEventListener('scroll', () => {
         const y = window.scrollY;
         const rate = y * 0.15;
@@ -2620,6 +2760,7 @@ reveals.forEach(el => observer.observe(el));
 // Fetch Medium posts
 (async function loadPosts() {
     const container = document.getElementById('blog-posts');
+    const esc = (v) => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     try {
         const res = await fetch('./posts.json');
         const data = await res.json();
@@ -2632,11 +2773,11 @@ reveals.forEach(el => observer.observe(el));
                 year: 'numeric', month: 'short', day: 'numeric'
             });
             // Extract plain text excerpt from description HTML
-            const tmp = document.createElement('div');
-            tmp.innerHTML = post.description;
-            const excerpt = tmp.textContent.substring(0, 150).trim() + '...';
-            const tags = post.categories.slice(0, 3).map(t =>
-                `<span class="post-tag">${t}</span>`
+            // DOMParser does not fetch resources (avoids firing Medium tracking pixels)
+            const doc = new DOMParser().parseFromString(post.description || '', 'text/html');
+            const excerpt = esc((doc.body.textContent || '').substring(0, 150).trim()) + '...';
+            const tags = (post.categories || []).slice(0, 3).map(t =>
+                `<span class="post-tag">${esc(t)}</span>`
             ).join('');
             // Try to extract thumbnail from Medium content
             const thumbMatch = post.description.match(/<img[^>]+src="([^"]+)"/);
@@ -2649,7 +2790,7 @@ reveals.forEach(el => observer.observe(el));
                 <div class="post-thumb-fallback" style="display:${thumb?'none':'flex'}">✦</div>
                 <div class="post-body">
                     <div class="post-date">${date}</div>
-                    <div class="post-title">${post.title}</div>
+                    <div class="post-title">${esc(post.title)}</div>
                     <div class="post-excerpt">${excerpt}</div>
                     ${tags ? `<div class="post-tags">${tags}</div>` : ''}
                 </div>

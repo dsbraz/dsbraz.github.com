@@ -1,6 +1,6 @@
 # dsbraz.com
 
-Personal portfolio website for Daniel Braz — technology executive and product builder (CTO @ Bud · CTO @ BRQ).
+Personal portfolio website for Daniel Braz — technology executive and product builder (CTO · CIO · CPO).
 
 ## Overview
 
