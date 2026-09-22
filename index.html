@@ -872,6 +872,28 @@
             text-shadow: 0 0 10px var(--accent-glow);
         }
 
+        .timeline-company.with-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 20px;
+        }
+
+        .company-logo {
+            display: inline-block;
+            flex: 0 0 28px;
+            height: 18px;
+            background-color: var(--accent);
+            -webkit-mask: var(--company-logo) center / contain no-repeat;
+            mask: var(--company-logo) center / contain no-repeat;
+        }
+
+        .company-logo--brq { --company-logo: url('assets/logos/brq.svg'); }
+        .company-logo--bud { --company-logo: url('assets/logos/bud.svg'); }
+        .company-logo--senior { --company-logo: url('assets/logos/senior.svg'); }
+        .company-logo--nuvemshop { --company-logo: url('assets/logos/nuvemshop.svg'); }
+        .company-logo--accenture { --company-logo: url('assets/logos/accenture.svg'); }
+
         .timeline-period {
             font-size: 13px;
             color: var(--text-dim);
@@ -1949,43 +1971,37 @@
         <div class="timeline reveal">
             <div class="timeline-item current">
                 <div class="timeline-role">CTO <span class="timeline-current-badge">Current</span></div>
-                <div class="timeline-company">BRQ</div>
+                <div class="timeline-company with-logo"><span class="company-logo company-logo--brq" aria-hidden="true"></span>BRQ</div>
                 <div class="timeline-period">2024 — present · São Paulo</div>
                 <div class="timeline-desc">CTO of the PX business unit and Head of the Digital Products Studio (formerly WEME, acquired by BRQ in Sep 2025). Embedded product teams building and operating digital products inside enterprises like CPFL, Santander, and Edenred. Built Backpack, the Studio's internal agent platform.</div>
             </div>
             <div class="timeline-item current">
                 <div class="timeline-role">CTO <span class="timeline-current-badge">Current</span></div>
-                <div class="timeline-company">Bud</div>
+                <div class="timeline-company with-logo"><span class="company-logo company-logo--bud" aria-hidden="true"></span>Bud</div>
                 <div class="timeline-period">2024 — present · São Paulo</div>
                 <div class="timeline-desc">CTO of Bud, a SaaS company. Building the product end-to-end, 0→1: strategy &amp; performance management with context-aware AI, with Bud Coach agents in production across the product, Microsoft Teams, and WhatsApp — used by companies like General Mills, Sakata, and Eniac.</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-role">Platform Director</div>
-                <div class="timeline-company">Senior Sistemas</div>
+                <div class="timeline-company with-logo"><span class="company-logo company-logo--senior" aria-hidden="true"></span>Senior Sistemas</div>
                 <div class="timeline-period">2022 — 2024 · Blumenau</div>
                 <div class="timeline-desc">Head of the X Platform product unit, owning P&amp;L and all functions (product, engineering, sales, marketing). Built and launched the developer platform — dev portal, APIs, SDKs — that turned Senior into a product-led business platform via attraction, connection, and ecosystem gravity. Grew the team from 0 to 57 in 24 months.</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-role">Field CTO (Global Head of Professional Services)</div>
-                <div class="timeline-company">Nuvemshop</div>
+                <div class="timeline-company with-logo"><span class="company-logo company-logo--nuvemshop" aria-hidden="true"></span>Nuvemshop</div>
                 <div class="timeline-period">2021 — 2022 · São Paulo</div>
                 <div class="timeline-desc">Built the product-extension operation for Enterprise clients of LATAM's leading SMB e-commerce platform — distributed teams across Brazil, Argentina, and Mexico delivering the APIs, SDKs, environments, and partner ecosystem that let large merchants build on top of the core product.</div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-role">Technology Director &amp; Business Agility Advisory Executive</div>
-                <div class="timeline-company">Accenture</div>
-                <div class="timeline-period">2019 — 2021 · São Paulo</div>
+                <div class="timeline-role">Technology Director</div>
+                <div class="timeline-company with-logo"><span class="company-logo company-logo--accenture" aria-hidden="true"></span>Accenture</div>
+                <div class="timeline-period">2018 — 2021 · São Paulo</div>
                 <div class="timeline-desc">Technology and sales lead in Financial Services and Communication, Media &amp; Technology — a 2,500+ person unit. Teams embedded in clients' product organizations, building and operating digital products for enterprises like Itaú, Globo, and Google.</div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-role">Business Development Director</div>
-                <div class="timeline-company">ThoughtWorks</div>
-                <div class="timeline-period">2018 — 2019 · São Paulo</div>
-                <div class="timeline-desc">Led the new ventures and innovation practices — building and launching new 0→1 digital products side by side with client teams at Braskem, BV, and Globo.com.</div>
-            </div>
-            <div class="timeline-item">
                 <div class="timeline-role">Director of Engineering</div>
-                <div class="timeline-company">Concrete (Accenture)</div>
+                <div class="timeline-company with-logo"><span class="company-logo company-logo--accenture" aria-hidden="true"></span>Accenture (Concrete)</div>
                 <div class="timeline-period">2013 — 2018 · São Paulo</div>
                 <div class="timeline-desc">Member of the executive board — squads embedded in large enterprises to build and run their digital products. Scaled the company from 40 to 700 people, culminating in the acquisition by Accenture.</div>
             </div>
