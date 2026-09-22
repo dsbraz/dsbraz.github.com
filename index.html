@@ -25,13 +25,6 @@
         "@type": "Person",
         "name": "Daniel Braz",
         "jobTitle": ["CTO", "CIO", "CPO"],
-        "knowsLanguage": ["pt-BR", "en", "es"],
-        "alumniOf": [
-            {"@type": "EducationalOrganization", "name": "Ibmec"},
-            {"@type": "EducationalOrganization", "name": "IESE Business School"},
-            {"@type": "EducationalOrganization", "name": "Universidade Estácio de Sá"},
-            {"@type": "EducationalOrganization", "name": "Centro Universitário SENAC"}
-        ],
         "worksFor": [
             {
                 "@type": "Organization",
@@ -783,7 +776,7 @@
             letter-spacing: 1px;
         }
 
-        /* Timeline / Experience */
+        /* Talks timeline */
         .timeline {
             position: relative;
             padding-left: 32px;
@@ -839,20 +832,6 @@
             box-shadow: 0 0 10px var(--accent-glow);
         }
 
-        .timeline-item.current::before {
-            width: 13px;
-            height: 13px;
-            left: -37px;
-            top: 28px;
-            box-shadow: 0 0 16px var(--accent-glow), 0 0 30px rgba(0, 212, 255, 0.3);
-            animation: pulseDot 2s ease-in-out infinite;
-        }
-
-        @keyframes pulseDot {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.7; }
-        }
-
         .timeline-role {
             font-size: 18px;
             font-weight: 600;
@@ -871,28 +850,6 @@
         .timeline-item:hover .timeline-company {
             text-shadow: 0 0 10px var(--accent-glow);
         }
-
-        .timeline-company.with-logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            min-height: 20px;
-        }
-
-        .company-logo {
-            display: inline-block;
-            flex: 0 0 28px;
-            height: 18px;
-            background-color: var(--accent);
-            -webkit-mask: var(--company-logo) center / contain no-repeat;
-            mask: var(--company-logo) center / contain no-repeat;
-        }
-
-        .company-logo--brq { --company-logo: url('assets/logos/brq.svg'); }
-        .company-logo--bud { --company-logo: url('assets/logos/bud.svg'); }
-        .company-logo--senior { --company-logo: url('assets/logos/senior.svg'); }
-        .company-logo--nuvemshop { --company-logo: url('assets/logos/nuvemshop.svg'); }
-        .company-logo--accenture { --company-logo: url('assets/logos/accenture.svg'); }
 
         .timeline-period {
             font-size: 13px;
@@ -914,26 +871,6 @@
 
         .timeline-item:hover .timeline-desc {
             color: var(--text-primary);
-        }
-
-        .timeline-current-badge {
-            display: inline-block;
-            font-family: var(--font-mono);
-            font-size: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--accent);
-            background: var(--accent-dim);
-            padding: 4px 10px;
-            margin-left: 8px;
-            vertical-align: middle;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            animation: pulseBadge 2s ease-in-out infinite;
-        }
-
-        @keyframes pulseBadge {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.3); }
-            50% { box-shadow: 0 0 10px 2px rgba(0, 212, 255, 0.15); }
         }
 
         /* Skills */
@@ -1318,98 +1255,6 @@
             color: var(--accent);
         }
 
-        /* Credentials */
-        .credentials-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: start;
-        }
-
-        .creds-label {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--accent);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 14px;
-        }
-
-        .creds-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .creds-list li {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            padding-left: 16px;
-            position: relative;
-            opacity: 0;
-            transform: translateX(-8px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .creds-list li.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .creds-list li::before {
-            content: '·';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .creds-list li strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .creds-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .chip {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--text-primary);
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 6px 12px;
-            transition: all 0.2s ease;
-            opacity: 0;
-            transform: translateY(8px);
-        }
-
-        .chip.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .chip:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .creds-text {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            transition: color 0.3s ease;
-        }
-
-        .credentials-grid:hover .creds-text {
-            color: var(--text-primary);
-        }
-
         /* Connect / Social */
         .connect-grid {
             display: grid;
@@ -1730,8 +1575,7 @@
                 margin-right: auto;
             }
 
-            .about-content,
-            .credentials-grid {
+            .about-content {
                 grid-template-columns: 1fr;
                 gap: 32px;
             }
@@ -1820,7 +1664,7 @@
 <noscript>
     <style>
         body { opacity: 1 !important; }
-        .reveal, .about-text p, .chip, .creds-list li, .timeline-item { opacity: 1 !important; transform: none !important; }
+        .reveal, .about-text p, .timeline-item { opacity: 1 !important; transform: none !important; }
         .aurora-bg { display: none !important; }
     </style>
 </noscript>
@@ -1835,7 +1679,6 @@
         <a href="#" class="header-logo">dsbraz</a>
         <ul class="header-links">
             <li><a href="#about" data-section="about">About</a></li>
-            <li><a href="#experience" data-section="experience">Experience</a></li>
             <li><a href="#talks" data-section="talks">Talks</a></li>
             <li><a href="#writing" data-section="writing">Writing</a></li>
             <li><a href="#skills" data-section="skills">Skills</a></li>
@@ -1965,61 +1808,6 @@
         </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" class="section" data-section-name="experience">
-        <div class="section-header">Experience</div>
-        <div class="timeline reveal">
-            <div class="timeline-item current">
-                <div class="timeline-role">CTO <span class="timeline-current-badge">Current</span></div>
-                <div class="timeline-company with-logo"><span class="company-logo company-logo--brq" aria-hidden="true"></span>BRQ</div>
-                <div class="timeline-period">2024 — present · São Paulo</div>
-                <div class="timeline-desc">CTO of the PX business unit and Head of the Digital Products Studio (formerly WEME, acquired by BRQ in Sep 2025). Embedded product teams building and operating digital products inside enterprises like CPFL, Santander, and Edenred. Built Backpack, the Studio's internal agent platform.</div>
-            </div>
-            <div class="timeline-item current">
-                <div class="timeline-role">CTO <span class="timeline-current-badge">Current</span></div>
-                <div class="timeline-company with-logo"><span class="company-logo company-logo--bud" aria-hidden="true"></span>Bud</div>
-                <div class="timeline-period">2024 — present · São Paulo</div>
-                <div class="timeline-desc">CTO of Bud, a SaaS company. Building the product end-to-end, 0→1: strategy &amp; performance management with context-aware AI, with Bud Coach agents in production across the product, Microsoft Teams, and WhatsApp — used by companies like General Mills, Sakata, and Eniac.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-role">Platform Director</div>
-                <div class="timeline-company with-logo"><span class="company-logo company-logo--senior" aria-hidden="true"></span>Senior Sistemas</div>
-                <div class="timeline-period">2022 — 2024 · Blumenau</div>
-                <div class="timeline-desc">Head of the X Platform product unit, owning P&amp;L and all functions (product, engineering, sales, marketing). Built and launched the developer platform — dev portal, APIs, SDKs — that turned Senior into a product-led business platform via attraction, connection, and ecosystem gravity. Grew the team from 0 to 57 in 24 months.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-role">Field CTO (Global Head of Professional Services)</div>
-                <div class="timeline-company with-logo"><span class="company-logo company-logo--nuvemshop" aria-hidden="true"></span>Nuvemshop</div>
-                <div class="timeline-period">2021 — 2022 · São Paulo</div>
-                <div class="timeline-desc">Built the product-extension operation for Enterprise clients of LATAM's leading SMB e-commerce platform — distributed teams across Brazil, Argentina, and Mexico delivering the APIs, SDKs, environments, and partner ecosystem that let large merchants build on top of the core product.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-role">Technology Director</div>
-                <div class="timeline-company with-logo"><span class="company-logo company-logo--accenture" aria-hidden="true"></span>Accenture</div>
-                <div class="timeline-period">2018 — 2021 · São Paulo</div>
-                <div class="timeline-desc">Technology and sales lead in Financial Services and Communication, Media &amp; Technology — a 2,500+ person unit. Teams embedded in clients' product organizations, building and operating digital products for enterprises like Itaú, Globo, and Google.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-role">Director of Engineering</div>
-                <div class="timeline-company with-logo"><span class="company-logo company-logo--accenture" aria-hidden="true"></span>Accenture (Concrete)</div>
-                <div class="timeline-period">2013 — 2018 · São Paulo</div>
-                <div class="timeline-desc">Member of the executive board — squads embedded in large enterprises to build and run their digital products. Scaled the company from 40 to 700 people, culminating in the acquisition by Accenture.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-role">Co-Founder &amp; CTO</div>
-                <div class="timeline-company">Saci Labs</div>
-                <div class="timeline-period">2009 — 2013 · Rio de Janeiro</div>
-                <div class="timeline-desc">Co-founded Saci Labs and ran its technology.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-role">Software Engineer</div>
-                <div class="timeline-company">Various companies</div>
-                <div class="timeline-period">1997 — 2009 · Rio de Janeiro &amp; São Paulo</div>
-                <div class="timeline-desc">Software engineering roles at various companies in Rio de Janeiro and São Paulo.</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Talks -->
     <section id="talks" class="section" data-section-name="talks">
         <div class="section-header">Talks</div>
@@ -2089,53 +1877,6 @@
                     <div class="skeleton-line short skeleton"></div>
                     <div class="skeleton-line skeleton"></div>
                     <div class="skeleton-line medium skeleton"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Credentials -->
-    <section class="section">
-        <div class="section-header">Credentials</div>
-        <div class="credentials-grid reveal">
-            <div>
-                <div class="creds-label">// Background</div>
-                <ul class="creds-list">
-                    <li><strong>BSc, Mathematics &amp; Computer Science</strong> — Universidade Estácio de Sá</li>
-                    <li><strong>BA, Business Management</strong> — Centro Universitário SENAC</li>
-                    <li><strong>MBA, Finance</strong> — Insper / Ibmec</li>
-                    <li><strong>Executive education</strong> — IESE, Johns Hopkins, FGV, FIA</li>
-                </ul>
-                <div class="creds-label" style="margin-top: 28px;">// Languages</div>
-                <div class="creds-text">Portuguese native · English fluent · Spanish intermediate</div>
-            </div>
-            <div>
-                <div class="creds-label">// Certifications</div>
-                <ul class="creds-list">
-                    <li><strong>Claude Certified Architect</strong> — Anthropic · 2026</li>
-                    <li><strong>AWS Technical Professional</strong> — Amazon Web Services · 2013</li>
-                    <li><strong>Professional Scrum Master (PSM)</strong> — Scrum.org · 2012</li>
-                    <li><strong>Certified SAFe 5 Program Consultant</strong> — Scaled Agile · 2020</li>
-                    <li><strong>Business Agility Foundations (ICP-BAF)</strong> — ICAgile · 2020</li>
-                    <li><strong>Enterprise Business Agility Strategist (EBAS)</strong> — AgilityInsights · 2020</li>
-                    <li><strong>Certified Lean Inception Facilitator</strong> — Caroli.org · 2020</li>
-                </ul>
-            </div>
-            <div>
-                <div class="creds-label">// Stack &amp; Tooling</div>
-                <div class="creds-chips">
-                    <span class="chip">Go</span>
-                    <span class="chip">Python</span>
-                    <span class="chip">.NET / C#</span>
-                    <span class="chip">Java</span>
-                    <span class="chip">LLMs / RAG</span>
-                    <span class="chip">Multi-model</span>
-                    <span class="chip">Claude Code</span>
-                    <span class="chip">Cursor</span>
-                    <span class="chip">Codex</span>
-                    <span class="chip">Linux</span>
-                    <span class="chip">GCP</span>
-                    <span class="chip">AWS</span>
                 </div>
             </div>
         </div>
@@ -2241,7 +1982,6 @@
             </div>
             <nav class="footer-nav">
                 <a href="#about">About</a>
-                <a href="#experience">Experience</a>
                 <a href="#talks">Talks</a>
                 <a href="#writing">Writing</a>
                 <a href="#skills">Skills</a>
@@ -2572,40 +2312,6 @@ reveals.forEach(el => observer.observe(el));
         });
     }, { threshold: 0.2 });
     aboutTexts.forEach(t => textObserver.observe(t));
-})();
-
-// Chip stagger animation
-(function initChipStagger() {
-    const chipContainers = document.querySelectorAll('.creds-chips');
-    const chipObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const chips = entry.target.querySelectorAll('.chip');
-                chips.forEach((chip, i) => {
-                    chip.style.transition = `opacity 0.4s ease ${i * 0.05}s, transform 0.4s ease ${i * 0.05}s, border-color 0.2s ease, color 0.2s ease`;
-                    requestAnimationFrame(() => chip.classList.add('visible'));
-                });
-            }
-        });
-    }, { threshold: 0.3 });
-    chipContainers.forEach(c => chipObserver.observe(c));
-})();
-
-// Creds list stagger animation
-(function initCredsStagger() {
-    const credsLists = document.querySelectorAll('.creds-list');
-    const credsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const items = entry.target.querySelectorAll('li');
-                items.forEach((item, i) => {
-                    item.style.transition = `opacity 0.4s ease ${i * 0.08}s, transform 0.4s ease ${i * 0.08}s`;
-                    requestAnimationFrame(() => item.classList.add('visible'));
-                });
-            }
-        });
-    }, { threshold: 0.2 });
-    credsLists.forEach(l => credsObserver.observe(l));
 })();
 
 // Footer typing effect

@@ -11,10 +11,8 @@ Single-page portfolio built with vanilla HTML, CSS, and JavaScript. Features an 
 - **Hero** — Animated introduction with CTA buttons
 - **About** — Professional background and stats (years building products, AI agents in production, team scale, essays)
 - **Research & Writing** — Latest Medium blog posts (from `posts.json`)
-- **Experience** — Career timeline (Bud, BRQ, Senior Sistemas, Nuvemshop, Accenture, ThoughtWorks, Concrete, Saci Labs)
 - **What I Do** — Agentic AI Engineering, Platform & Product Strategy, Engineering Leadership at Scale, AI Research & Practice, Embedded Product Delivery, Writing on Agentic SWE
 - **Open Source Activity** — GitHub contribution graph and pinned repos
-- **Credentials** — Education, stack & tooling, languages
 - **Connect** — GitHub, LinkedIn, X/Twitter, Medium
 
 ## Tech Stack
