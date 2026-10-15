@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dsbraz.com">
     <meta property="og:title" content="Daniel Braz — CTO · CIO · CPO · AI agents in production">
-    <meta property="og:description" content="Technology executive with 25+ years building digital products — AI agents in production at Bud, embedded product teams inside enterprises at BRQ. Writing on agentic software engineering.">
+    <meta property="og:description" content="Technology executive building digital products — AI agents in production at Bud, embedded product teams inside enterprises at BRQ. Writing on agentic software engineering.">
     <meta property="og:image" content="https://dsbraz.com/og.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://dsbraz.com">
     <meta name="twitter:title" content="Daniel Braz — CTO · CIO · CPO · AI agents in production">
-    <meta name="twitter:description" content="Technology executive with 25+ years building digital products — AI agents in production at Bud, embedded product teams inside enterprises at BRQ. Writing on agentic software engineering.">
+    <meta name="twitter:description" content="Technology executive building digital products — AI agents in production at Bud, embedded product teams inside enterprises at BRQ. Writing on agentic software engineering.">
     <meta name="twitter:image" content="https://dsbraz.com/og.jpg">
     <script type="application/ld+json">
     {
@@ -1697,7 +1697,7 @@
                 <h1 class="hero-name">Daniel <span class="accent">Braz</span></h1>
                 <p class="hero-title">Contextual IA platforms · Engineering at scale</p>
                 <p class="hero-description">
-                    I build digital products and the teams that ship them — for 25+ years, and still hands-on.
+                    I build digital products and the teams that ship them.
                     CTO of <a href="https://getbud.co" target="_blank" rel="noopener noreferrer" class="accent glow-text">Bud</a>, a SaaS company where I build the product end-to-end:
                     <span class="accent glow-text">AI agents</span> for strategy and performance, in production across the product, Microsoft Teams, and WhatsApp.
                     Also CTO at <a href="https://brq.com" target="_blank" rel="noopener noreferrer" class="accent glow-text">BRQ</a>, where embedded product teams build and operate digital products inside large enterprises.
@@ -1723,7 +1723,7 @@
         <div class="section-header">About</div>
         <div class="about-content reveal">
             <div class="about-text">
-                <p>I've spent 25+ years building digital products — as an executive, and still hands-on.</p>
+                <p>I combine executive leadership with hands-on product development.</p>
                 <p>
                     I'm CTO of <a href="https://getbud.co" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Bud</a> —
                     a SaaS company where I build the product end-to-end, 0→1.
@@ -1733,28 +1733,27 @@
                     Companies like General Mills, Sakata, Eniac, Evolve, Latina, and Alphabot run on it.
                 </p>
                 <p>
-                    I'm also CTO of <a href="https://brq.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">BRQ</a>'s Digital Products Studio —
-                    the former WEME, acquired by BRQ in September 2025. The Studio builds and operates digital products
+                    I'm also CTO of <a href="https://brq.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">BRQ</a>'s Digital Products Studio, where we build and operate digital products
                     inside large enterprises: our teams embed as an extension of each client's product organization,
                     owning the product from discovery through ongoing operation. There I built Backpack,
                     the Studio's internal agent platform. The two roles are deliberate — at Bud I go deep on one product;
                     at BRQ I scale the same practice across many.
                 </p>
                 <p>
-                    Earlier, I ran the X Platform product unit at Senior Sistemas — full P&amp;L, building the
+                    At Senior Sistemas, I ran the X Platform product unit — full P&amp;L, building the
                     developer platform (dev portal, APIs, SDKs) that turned an ERP into a product-led ecosystem.
                     At Nuvemshop, I built the LATAM Enterprise operation — distributed teams across Brazil, Argentina,
                     and Mexico — that lets large merchants extend the core product.
-                    Before that, a decade at Accenture and Concrete leading embedded teams that built
+                    I spent almost a decade at Accenture leading embedded teams that built
                     and operated digital products inside enterprises like Itaú, Globo, and Google —
-                    and helping scale Concrete from 40 to 700 people, through its acquisition by Accenture.
+                    and helping scale Concrete from 40 to 700 people.
                 </p>
             </div>
         </div>
         <div class="stats-grid reveal" style="margin-top: 40px;">
             <div class="stat-card">
-                <div class="stat-number">25+</div>
-                <div class="stat-label">Years building products, still hands-on</div>
+                <div class="stat-number">0→1</div>
+                <div class="stat-label">End-to-end product development</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">30+</div>
@@ -1762,7 +1761,7 @@
             </div>
             <div class="stat-card">
                 <div class="stat-number">40→700</div>
-                <div class="stat-label">People at Concrete, before the acquisition</div>
+                <div class="stat-label">People at Concrete</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">R$ 17M</div>
@@ -2494,6 +2493,10 @@ reveals.forEach(el => observer.observe(el));
 // Fetch Medium posts
 (async function loadPosts() {
     const container = document.getElementById('blog-posts');
+    // Editorial summaries stay independent of the automatically refreshed RSS feed.
+    const editorialExcerpts = {
+        '108188be52c2': 'How AI agents change software development, and why specification, validation, and operational controls still matter.'
+    };
     const esc = (v) => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     try {
         const res = await fetch('./posts.json');
@@ -2509,7 +2512,10 @@ reveals.forEach(el => observer.observe(el));
             // Extract plain text excerpt from description HTML
             // DOMParser does not fetch resources (avoids firing Medium tracking pixels)
             const doc = new DOMParser().parseFromString(post.description || '', 'text/html');
-            const excerpt = esc((doc.body.textContent || '').substring(0, 150).trim()) + '...';
+            const postId = (post.link || '').split('?')[0].match(/-([a-f0-9]{12})$/)?.[1];
+            const excerpt = editorialExcerpts[postId]
+                ? esc(editorialExcerpts[postId])
+                : esc((doc.body.textContent || '').substring(0, 150).trim()) + '...';
             const tags = (post.categories || []).slice(0, 3).map(t =>
                 `<span class="post-tag">${esc(t)}</span>`
             ).join('');

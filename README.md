@@ -9,7 +9,7 @@ Single-page portfolio built with vanilla HTML, CSS, and JavaScript. Features an 
 ## Sections
 
 - **Hero** — Animated introduction with CTA buttons
-- **About** — Professional background and stats (years building products, AI agents in production, team scale, essays)
+- **About** — Professional background and stats (end-to-end product development, AI agents in production, team scale, ARR)
 - **Research & Writing** — Latest Medium blog posts (from `posts.json`)
 - **What I Do** — Agentic AI Engineering, Platform & Product Strategy, Engineering Leadership at Scale, AI Research & Practice, Embedded Product Delivery, Writing on Agentic SWE
 - **Open Source Activity** — GitHub contribution graph and pinned repos
