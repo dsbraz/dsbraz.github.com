@@ -1,6 +1,6 @@
 # dsbraz.com
 
-Personal portfolio website for Daniel Braz — technology executive and product builder (CTO · CIO · CPO).
+Personal portfolio website for Daniel Braz — technology executive and product builder (CTO · CPO).
 
 ## Overview
 
@@ -9,9 +9,10 @@ Single-page portfolio built with vanilla HTML, CSS, and JavaScript. Features an 
 ## Sections
 
 - **Hero** — Animated introduction with CTA buttons
-- **About** — Professional background and stats (end-to-end product development, AI agents in production, team scale, ARR)
+- **About** — Product, engineering and business leadership at BRQ and Bud, with results from Senior, Concrete and Accenture
+- **What I Do** — Digital Product Leadership, Engineering Leadership at Scale, Platform Strategy & Ecosystems, Business Unit Leadership, Applied AI & Agentic Systems, AI Research & Practice
+- **Talks** — Conference talks, panels and workshops
 - **Research & Writing** — Latest Medium blog posts (from `posts.json`)
-- **What I Do** — Agentic AI Engineering, Platform & Product Strategy, Engineering Leadership at Scale, AI Research & Practice, Embedded Product Delivery, Writing on Agentic SWE
 - **Open Source Activity** — GitHub contribution graph and pinned repos
 - **Connect** — GitHub, LinkedIn, X/Twitter, Medium
 
