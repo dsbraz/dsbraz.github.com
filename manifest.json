@@ -1,16 +1,13 @@
 {
-  "name": "Daniel Braz — CTO · CPO",
+  "name": "Daniel Braz — Technology & Product leader",
   "short_name": "Daniel Braz",
-  "description": "CTO at BRQ and Bud, connecting product strategy, engineering and business outcomes. Building digital products, platforms and AI agents in production.",
+  "description": "Technology and product strategy the business can act on, teams and tools that deliver it, and the management of the businesses that grow from it.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0e17",
-  "theme_color": "#00d4ff",
+  "background_color": "#0B0B0C",
+  "theme_color": "#0B0B0C",
   "icons": [
-    {
-      "src": "profile.jpg",
-      "sizes": "400x400",
-      "type": "image/jpeg"
-    }
+    { "src": "favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "favicon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
