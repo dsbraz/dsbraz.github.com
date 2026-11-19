@@ -4,25 +4,23 @@ Personal portfolio website for Daniel Braz — technology executive and product 
 
 ## Overview
 
-Single-page portfolio built with vanilla HTML, CSS, and JavaScript. Features an animated space-themed background using the Canvas API, dynamic Medium blog posts via RSS, and a GitHub contribution graph.
+Minimal single-page site in vanilla HTML, CSS and JavaScript, in English, Portuguese and Spanish (follows the system light/dark theme). Medium posts come from `posts.json`, refreshed by a GitHub Action.
 
 ## Sections
 
-- **Hero** — Animated introduction with CTA buttons
-- **About** — Product, engineering and business leadership at BRQ and Bud, with results from Senior, Concrete and Accenture
-- **What I Do** — Digital Product Leadership, Engineering Leadership at Scale, Platform Strategy & Ecosystems, Business Unit Leadership, Applied AI & Agentic Systems, AI Research & Practice
-- **Talks** — Conference talks, panels and workshops
-- **Research & Writing** — Latest Medium blog posts (from `posts.json`)
-- **Open Source Activity** — GitHub contribution graph and pinned repos
-- **Connect** — GitHub, LinkedIn, X/Twitter, Medium
+- **Intro** — who I am and what I do, plus a rotating "pattern" line (a different one on each visit; click for the next)
+- **Writing** — latest Medium post featured, then recent posts
+- **Talks** — conferences, panels and workshops
+- **Contact** — email, LinkedIn, Medium, GitHub, X
+
+There are also three hidden secrets on the page. The footer counts them and gives hints.
 
 ## Tech Stack
 
 - HTML5 / CSS3 / Vanilla JavaScript
-- Canvas API (animated stars, galaxies, constellations)
 - CSS Grid, Flexbox, CSS variables
-- Google Fonts (Inter, JetBrains Mono)
-- RSS2JSON API (Medium feed)
+- Google Fonts (Geist, Geist Mono)
+- `posts.json` refreshed by a GitHub Action (Medium feed)
 - GitHub Pages + custom domain
 
 ## Running Locally
